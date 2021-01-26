@@ -1,0 +1,11 @@
+/*
+ * Все паршалы импортировать в этот файл
+ */
+
+@import 'normalize.scss';
+@import 'base.scss';
+@import './components/header.scss';
+@import './components/homePage.scss';
+@import './components/myFilmLibraryPage.scss';
+@import './components/detailsPage.scss';
+@import './components/footer.scss';

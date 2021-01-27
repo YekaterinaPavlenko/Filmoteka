@@ -1,0 +1,65 @@
+.modal-btn {
+  display: flex;
+  position: relative;
+  width: 136px;
+  height: 44px;
+  border: 1px solid #000000;
+  box-sizing: border-box;
+  border-radius: 5px;
+}
+
+.modal-btn .backdrop button {
+  padding: 14px 20px;
+  border: 1px solid #000000;
+  box-sizing: border-box;
+  border-radius: 5px;
+  font: 500 12px/1.33 'Roboto', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  text-transform: uppercase;
+  background: #ffffff;
+  transition: all 250ms linear;
+  // min-width: 142px;
+
+  &:hover {
+    background: #ff6b01;
+    color: ffffff;
+    border: none;
+  }
+  &.clicked {
+    background: #ff6b01;
+    color: ffffff;
+    border: none;
+  }
+
+  @media screen and (min-width: 1024px) {
+    min-width: 142px;
+  }
+}
+
+.backdrop {
+  position: fixed;
+  top: 25px;
+  left: 20px;
+  right: 20px;
+  bottom: 20px;
+  // width: 100%;
+  background-color: rgba(251, 251, 252, 0.8);
+  pointer-events: initial;
+  z-index: 100;
+  opacity: 1;
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.backdrop.is-hidden {
+  visibility: hidden;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.backdrop.is-hidden .modal {
+  transform: translate(-50%, -50%) scale(1.1);
+}

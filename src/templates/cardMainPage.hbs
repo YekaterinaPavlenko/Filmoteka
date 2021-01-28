@@ -1,6 +1,6 @@
 {{#each this}}
 <li class="gallery-item">
-    <img src="https://image.tmdb.org/t/p/w300{{poster_path}}" alt="{{title}}">
+    <img src="https://image.tmdb.org/t/p/original{{poster_path}}" alt="{{title}}" class="gallery-image">
     <h2>{{title}}</h2>
     <ul>
         {{#each genres}}
@@ -10,4 +10,4 @@
     <p>| {{year}}</p>
     <p>{{vote_average}}</p>
 </li>
-{{each}}
+{{/each}}

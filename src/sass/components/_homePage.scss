@@ -14,3 +14,17 @@
     width: 1024px;
   }
 }
+/////////////////////////временные стили для карточек. Убери когда будешь добавлять свои
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+}
+.gallery-item {
+  width: calc((100% - 5px * 6) / 6);
+  margin-right: 5px;
+  margin-bottom: 5px;
+}
+.gallery-image {
+  width: 100%;
+}
+///////////////////////////////////////////

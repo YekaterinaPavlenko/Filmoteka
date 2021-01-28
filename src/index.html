@@ -7,14 +7,41 @@
     <title>Filmoteka</title>
     <!-- Сюда будет всталена ссылка на файл стилей -->
     <!-- inject:css -->
-    <!-- endinject -->  
+    <!-- endinject -->
   </head>
 
   <body>
-
     <div class="container">
-      <header>
-      </header>
+      <header class="header">
+      <div class="header-navigation container">
+        <a href="#" class="header-navigation_logo" id="nav-logo">
+          <img src="./images/film.png" alt="site logo" width="24" height="24" />
+          <h1 class="header-navigation_h1">Filmoteka</h1>
+        </a>
+        <ul class="header-navigation_list">
+          <!-- navigation_list-item -->
+          <li class="header-navigation_list-item">
+            <!-- navigation_list-item-link nav__btn-active home -->
+            <a
+              href="#"
+              class="header-navigation_list-item-link nav__btn-active home"
+              id="home-page"
+              >HOME</a
+            >
+          </li>
+          <!-- navigation_list-item -->
+          <li class="header-navigation_list-item">
+            <!-- navigation_list-item-link library -->
+            <a
+              href="#"
+              class="header-navigation_list-item-link library"
+              id="library-page"
+              >MY LIBRARY</a
+            >
+          </li>
+        </ul>
+      </div>
+    </header>
     </div>
 
     <main>
@@ -36,8 +63,20 @@
     <include src="./html/detailsPage.html"></include>
 
     <div class="container">
-      <footer></footer>
+      <footer class="footer">
+      <div class="footer-box container">
+        <h2 class="footer-h2">
+          © 2020 | All Rights Reserved | Developed with
+          <span
+            ><img src="./images/heart.png" alt="heart" width="14" height="14"
+          /></span>
+          by
+          <a href="#">GoIT Students</a>
+        </h2>
+      </div>
+    </footer>
     </div>
+
     <div class="details-page">
       <div class="modal backdrop is-hidden" data-modal id="modal">
         <div class="modal-card">
@@ -94,7 +133,6 @@
           </div>
         </div>
       </div>
-
     </div>
   </body>
 </html>

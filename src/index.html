@@ -11,7 +11,8 @@
   </head>
 
   <body>
-    <header class="header">
+    <div class="container">
+      <header class="header">
       <div class="header-navigation container">
         <a href="#" class="header-navigation_logo" id="nav-logo">
           <img src="./images/film.png" alt="site logo" width="24" height="24" />
@@ -41,20 +42,28 @@
         </ul>
       </div>
     </header>
+    </div>
 
     <main>
       <div class="container">
         <ul class="gallery"></ul>
+        <button
+          class="btn btn-more js-load_more"
+          type="button"
+          data-action="load-more"
+          disabled="true"
+        >
+          <span class="loader" role="status" aria-hidden="true"></span>
+          <span class="label">Show more</span>
+        </button>
       </div>
     </main>
 
-    <!-- Сюда будет всталена ссылка на файл скриптов -->
-    <!-- inject:js -->
-    <!-- endinject -->
     <button class="btn-video" data-modal-open>Клік по фільму</button>
     <include src="./html/detailsPage.html"></include>
 
-    <footer class="footer">
+    <div class="container">
+      <footer class="footer">
       <div class="footer-box container">
         <h2 class="footer-h2">
           © 2020 | All Rights Reserved | Developed with
@@ -66,6 +75,7 @@
         </h2>
       </div>
     </footer>
+    </div>
 
     <div class="details-page">
       <div class="modal backdrop is-hidden" data-modal id="modal">

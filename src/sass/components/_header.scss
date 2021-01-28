@@ -1,11 +1,19 @@
+li {
+  list-style-type: none;
+}
+
 .header {
   height: 230px;
-  background-color: rgba(0, 0, 0, 0.56);
-  // background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56)),
-  //   url(../images/Rectangle1.jpg);
-  // background-position: center;
-  // background-size: cover;
-  // background-repeat: no-repeat;
+  // background-color: rgba(0, 0, 0, 0.56);
+  background-image: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.56),
+      rgba(0, 0, 0, 0.56)
+    ),
+    url(../images/rectangle.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .header a {

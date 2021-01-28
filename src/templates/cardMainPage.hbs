@@ -1,0 +1,13 @@
+{{#each this}}
+<li class="film-card">
+    <img src="https://image.tmdb.org/t/p/w300{{poster_path}}" alt="{{title}}">
+    <h2>{{title}}</h2>
+    <ul>
+        {{#each genres}}
+        <li>{{this}}</li>
+        {{/each}}
+    </ul>
+    <p>| {{year}}</p>
+    <p>{{vote_average}}</p>
+</li>
+{{each}}

@@ -11,11 +11,98 @@
   </head>
 
   <body>
-    <header><p class="title">dfghdfjdhgh</p></header>
+    <div class="container">
+      <header>
+        <form class="search-form" id="search-form">
+          <input
+            class="input input__form"
+            type="text"
+            name="query"
+            autocomplete="off"
+            placeholder="Search images..."
+          />
+          <button class="btn submit-form" type="submit">Search</button>
+        </form>
+      </header>
+    </div>
 
-    <!-- Сюда будет всталена ссылка на файл скриптов -->
-    <!-- inject:js -->
-    <!-- endinject -->
-    <footer></footer>
+    <main>
+      <div class="container">
+        <ul class="gallery"></ul>
+        <button
+          class="btn btn-more js-load_more"
+          type="button"
+          data-action="load-more"
+          disabled="true"
+        >
+          <span class="loader" role="status" aria-hidden="true"></span>
+          <span class="label">Show more</span>
+        </button>
+      </div>
+    </main>
+
+    <button class="btn-video" data-modal-open>Клік по фільму</button>
+    <include src="./html/detailsPage.html"></include>
+
+    <div class="container">
+      <footer></footer>
+    </div>
+    <div class="details-page">
+      <div class="modal backdrop is-hidden" data-modal id="modal">
+        <div class="modal-card">
+          <div class="modal-img">
+            <img src="./images/film-image.jpg" alt="Picture film" />
+          </div>
+          <div class="modal-info">
+            <h2 class="modal-title">Title</h2>
+            <div class="modal-list">
+              <div class="modal-list-left">
+                <ul class="list-left">
+                  <li>Vote / Votes</li>
+                  <li>Popularity</li>
+                  <li>Original Title</li>
+                  <li>Genre</li>
+                </ul>
+              </div>
+              <div class="modal-list-right">
+                <ul class="list-right">
+                  <li>
+                    <span class="vote">7.3</span> /
+                    <span class="votes">1260</span>
+                  </li>
+                  <li>100.2</li>
+                  <li>A FISTFUL OF LEAD</li>
+                  <li>Western</li>
+                </ul>
+              </div>
+            </div>
+            <h3 class="about">About</h3>
+            <span class="modal-txt"
+              >Four of the West’s most infamous outlaws assemble to steal a huge
+              stash of gold from the most corrupt settlement of the gold rush
+              towns. But not all goes to plan one is killed and the other three
+              escapes with bags of gold hide out in the abandoned gold mine
+              where they happen across another gang of three – who themselves
+              were planning to hit the very same bank! As tensions rise, things
+              go from bad to worse as they realise the bags of gold are filled
+              with lead... they’ve been double crossed – but by who and
+              how?</span
+            >
+            <ul class="btn-list">
+              <!-- <a href="" class="modal-btn btn-changed" data-action="addToWatched">add to Watched</a>
+                    <a href="" class="modal-btn" data-action="addToQueue">add to queue</a> -->
+              <li>
+                <button class="js-btn watched-btn modal-btn">
+                  add to Watched
+                </button>
+              </li>
+              <li>
+                <button class="js-btn queue-btn modal-btn">add to queue</button>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
   </body>
 </html>

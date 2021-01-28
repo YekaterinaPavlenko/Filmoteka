@@ -7,3 +7,4 @@ import './js/updateMarkupGallery';
 import './js/loadMoreBtn.js';
 import './js/homePage.js';
 import './js/4filmDetailsPage.js';
+

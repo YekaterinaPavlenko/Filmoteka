@@ -1,13 +1,12 @@
 .header {
   height: 230px;
   padding: 0 20px;
-
   background-image: linear-gradient(
       to right,
       rgba(0, 0, 0, 0.56),
       rgba(0, 0, 0, 0.56)
     ),
-    url(./images/rectangle.jpg);
+    url(../images/rectangle.jpg);
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -110,7 +109,7 @@
 
 .search-film-form input {
   background: none;
-  background-image: url(./images/search_icon.png);
+  background-image: url(../images/search_icon.png);
   padding: 1px;
   background-repeat: no-repeat;
   background-position: center right;

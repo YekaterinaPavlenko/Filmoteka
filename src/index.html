@@ -13,35 +13,51 @@
   <body>
     <div class="container">
       <header class="header">
-      <div class="header-navigation container">
-        <a href="#" class="header-navigation_logo" id="nav-logo">
-          <img src="./images/film.png" alt="site logo" width="24" height="24" />
-          <h1 class="header-navigation_h1">Filmoteka</h1>
-        </a>
-        <ul class="header-navigation_list">
-          <!-- navigation_list-item -->
-          <li class="header-navigation_list-item">
-            <!-- navigation_list-item-link nav__btn-active home -->
-            <a
-              href="#"
-              class="header-navigation_list-item-link nav__btn-active home"
-              id="home-page"
-              >HOME</a
-            >
-          </li>
-          <!-- navigation_list-item -->
-          <li class="header-navigation_list-item">
-            <!-- navigation_list-item-link library -->
-            <a
-              href="#"
-              class="header-navigation_list-item-link library"
-              id="library-page"
-              >MY LIBRARY</a
-            >
-          </li>
-        </ul>
-      </div>
-    </header>
+        <div class="header-nav container">
+          <a href="#" class="header-nav_logo" id="nav-logo">
+            <img
+              src="./images/film.png"
+              alt="site logo"
+              width="24"
+              height="24"
+            />
+
+            <h1 class="header-nav_h1">Filmoteka</h1>
+          </a>
+
+          <!-- header-nav_list -->
+          <ul class="header-nav_list">
+            <li class="header-nav_list-item">
+              <!-- navigation_list-item-link nav__btn-active home -->
+              <a
+                href="#"
+                class="header-nav_list-item-link current"
+                id="home-page"
+                >HOME</a
+              >
+            </li>
+
+            <li class="header-nav_list-item">
+              <a
+                href="#"
+                class="header-nav_list-item-link library"
+                id="library-page"
+                >MY LIBRARY</a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <!-- search-form -->
+          <form class="search-film-form" autocomplete="off">
+            <input type="text" name="search" placeholder="Search" />
+            <p class="search-film-errors">
+              Search result not successful. Enter the correct movie name and
+            </p>
+          </form>
+        </div>
+      </header>
     </div>
 
     <main>
@@ -64,17 +80,17 @@
 
     <div class="container">
       <footer class="footer">
-      <div class="footer-box container">
-        <h2 class="footer-h2">
-          © 2020 | All Rights Reserved | Developed with
-          <span
-            ><img src="./images/heart.png" alt="heart" width="14" height="14"
-          /></span>
-          by
-          <a href="#">GoIT Students</a>
-        </h2>
-      </div>
-    </footer>
+        <div class="footer-box container">
+          <h2 class="footer-h2">
+            © 2020 | All Rights Reserved | Developed with
+            <span
+              ><img src="./images/heart.png" alt="heart" width="14" height="14"
+            /></span>
+            by
+            <a href="#">GoIT Students</a>
+          </h2>
+        </div>
+      </footer>
     </div>
 
     <div class="details-page">

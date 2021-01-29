@@ -1,10 +1,13 @@
+.header a {
+  text-decoration: none;
+}
 li {
   list-style-type: none;
 }
 
 .header {
   height: 230px;
-  // background-color: rgba(0, 0, 0, 0.56);
+  background-color: rgba(0, 0, 0, 0.56);
   background-image: linear-gradient(
       to right,
       rgba(0, 0, 0, 0.56),
@@ -16,8 +19,13 @@ li {
   background-repeat: no-repeat;
 }
 
-.header a {
-  text-decoration: none;
+.header.bcg-libr {
+  background-image: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.56),
+      rgba(0, 0, 0, 0.56)
+    ),
+    url(../images/Rectangle1_1.jpg);
 }
 
 .header-navigation {
@@ -83,4 +91,63 @@ li {
 .nav__btn-active {
   // color: #ffffff;
   border-bottom: 2px solid #ff6b08;
+}
+//header-library
+.home-button,
+.my-library-button {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.17;
+  color: #ffffff;
+  border: none;
+  background-color: inherit;
+}
+// .my-library-button {
+//   margin-right: 75px;
+// }
+.home-button {
+  margin-right: 39px;
+}
+.watched-show-btn,
+.queue-show-btn {
+  width: 136px;
+  height: 44px;
+  border-radius: 5px;
+  margin-left: 15px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.333;
+  color: #ffffff;
+  background-color: inherit;
+  border: 1px solid #ffffff;
+  @media screen and (max-width: 767px) {
+    width: 129px;
+    margin-left: 0;
+  }
+}
+.home-button::after {
+  width: 100%;
+  height: 3px;
+  content: ' ';
+  display: block;
+  background-color: #ff6b08;
+}
+.my-library-button::after {
+  width: 100%;
+  height: 3px;
+  content: ' ';
+  display: block;
+  background-color: #ff6b08;
+}
+
+.library-navigation {
+  text-align: center;
+}
+
+.orange {
+  background-color: #ff6b01;
+  box-shadow: 0px 8px 43px rgba(255, 107, 1, 0.6);
+  border: #ff6b01;
 }

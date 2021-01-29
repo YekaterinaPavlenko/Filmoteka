@@ -11,53 +11,42 @@
   </head>
 
   <body>
-    <div class="container">
-      <header class="header">
-        <div class="header-navigation container">
-          <a href="#" class="header-navigation_logo" id="nav-logo">
-            <img
-              src="./images/film.png"
-              alt="site logo"
-              width="24"
-              height="24"
-            />
-            <h1 class="header-navigation_h1">Filmoteka</h1>
-          </a>
-          <ul class="header-navigation_list">
-            <!-- navigation_list-item -->
-            <li class="header-navigation_list-item">
-              <!-- navigation_list-item-link nav__btn-active home -->
-              <a
-                href="#"
-                class="header-navigation_list-item-link nav__btn-active home"
-                id="home-page"
-                >HOME</a
-              >
-            </li>
-            <!-- navigation_list-item -->
-            <li class="header-navigation_list-item">
-              <!-- navigation_list-item-link library -->
-              <a
-                href="#"
-                class="header-navigation_list-item-link library"
-                id="library-page"
-                >MY LIBRARY</a
-              >
-            </li>
-          </ul>
-        </div>
-        <form class="search-form" id="search-form">
-          <input
-            class="input input__form"
-            type="text"
-            name="query"
-            autocomplete="off"
-            placeholder="Search images..."
-          />
-          <button class="btn submit-form" type="submit">Search</button>
-        </form>
-      </header>
-    </div>
+    <!-- <div class="container"> -->
+    <header class="header container">
+      <div class="header-navigation">
+        <a href="#" class="header-navigation_logo" id="nav-logo">
+          <img src="./images/film.png" alt="site logo" width="24" height="24" />
+          <h1 class="header-navigation_h1">Filmoteka</h1>
+        </a>
+        <ul class="header-navigation_list">
+          <!-- navigation_list-item -->
+          <li class="header-navigation_list-item">
+            <button type="button" class="home-button">HOME</button>
+          </li>
+          <!-- navigation_list-item -->
+          <li class="header-navigation_list-item">
+            <button type="button" class="my-library-button">MY LIBRARY</button>
+          </li>
+        </ul>
+      </div>
+      <form class="search-form" id="search-form">
+        <input
+          class="input input__form"
+          type="text"
+          name="query"
+          autocomplete="off"
+          placeholder="Search images..."
+        />
+        <button class="btn submit-form" type="submit">Search</button>
+      </form>
+      <div class="library-navigation">
+        <button type="button" class="watched-show-btn is-hidden orange">
+          Watched
+        </button>
+        <button type="button" class="queue-show-btn is-hidden">Queue</button>
+      </div>
+    </header>
+    <!-- </div> -->
 
     <main>
       <div class="container">

@@ -1,7 +1,9 @@
 {{#each this}}
 <li class="gallery-item">
-    <img src="https://image.tmdb.org/t/p/w300{{poster_path}}" alt="{{title}}">
-    <h2>{{title}}</h2>
+    <dev class="gallery-card">
+        <img src="https://image.tmdb.org/t/p/original{{poster_path}}" alt="{{title}}" class="gallery-image">
+        <h2 class="card-title">{{title}}</h2>
+    <dev class="card-content">
     <ul>
         {{#each genres}}
         <li>{{this}}</li>
@@ -9,5 +11,23 @@
     </ul>
     <p>| {{year}}</p>
     <p>{{vote_average}}</p>
+    </dev>
+    </dev>
 </li>
-{{each}}
+{{/each}}
+
+{{!-- {{#each this}}
+<li class="gallery-item">
+    <img src="https://image.tmdb.org/t/p/original{{poster_path}}" alt="{{title}}" class="gallery-image">
+    <h2>{{title}}</h2>
+    <ul>
+        {{#each genres}}
+            <li>
+                <span class="gallery-details">{{this.name}}</span>
+            </li> 
+        {{/each}}
+    </ul>
+    <p>| {{release_date}}</p>
+    <p>{{vote_average}}</p>
+</li>
+{{/each}} --}}

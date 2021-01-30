@@ -13,18 +13,14 @@
   <body>
     <div class="container">
       <header class="header">
-
         <div class="header-nav container">
-          <a href="#" class="header-nav_logo" id="nav-logo">
-
-
+          <a href="#" class="header-nav_logo js-logo-button" id="nav-logo">
             <img
               src="./images/film.png"
               alt="site logo"
               width="24"
               height="24"
             />
-
 
             <h1 class="header-nav_h1">Filmoteka</h1>
           </a>
@@ -35,7 +31,7 @@
               <!-- navigation_list-item-link nav__btn-active home -->
               <a
                 href="#"
-                class="header-nav_list-item-link current"
+                class="header-nav_list-item-link current js-home-button"
                 id="home-page"
                 >HOME</a
               >
@@ -43,7 +39,7 @@
             <li class="header-nav_list-item">
               <a
                 href="#"
-                class="header-nav_list-item-link library"
+                class="header-nav_list-item-link library js-my-library-button"
                 id="library-page"
                 >MY LIBRARY</a
               >
@@ -53,20 +49,36 @@
 
         <div>
           <!-- search-form -->
-          <form class="search-film-form" autocomplete="off">
+          <!-- <form
+            class="search-film-form js-submit-form"
+            autocomplete="off"
+            id="search-form"
+          >
             <input type="text" name="search" placeholder="Search" />
             <p class="search-film-errors">
               Search result not successful. Enter the correct movie name and
             </p>
+          </form> -->
+          <form class="search-film-form js-submit-form" id="search-form">
+            <input
+              class="input input__form js-input-form"
+              type="text"
+              name="search"
+              autocomplete="off"
+              placeholder="Search"
+            />
+            <p class="search-film-errors">
+              Search result not successful. Enter the correct movie name and
+            </p>
+            <button class="btn submit-form" type="submit">Search</button>
           </form>
-
         </div>
-      <div class="library-navigation">
+        <div class="library-navigation">
           <button type="button" class="watched-show-btn is-hidden orange">
             Watched
           </button>
           <button type="button" class="queue-show-btn is-hidden">Queue</button>
-      </div>
+        </div>
       </header>
     </div>
 

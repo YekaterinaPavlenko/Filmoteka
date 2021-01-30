@@ -1,9 +1,9 @@
-<li class="content-img">
+<li class="modal-img content-img">
     <img src="https://image.tmdb.org/t/p/w300{{poster_path}}" alt="{{title}}">
 </li>
-<li class="content-description">
+<li class="modal-description content-description">
     <h2 data-id="{{id}}">{{title}}</h2>
-    <ul class="description-list">
+    <ul class="modal-list">
         <li>
             <p class="description-header"> Vote / Votes</p>
             <p><span class="vote">{{vote_average}}</span> / {{vote_count}}</p>
@@ -26,10 +26,10 @@
         </li>
 
     </ul>
-    <h3>About</h3>
+    <h3 class="about">About</h3>
     <p class="overview">{{overview}}</p>
     <ul class="btn-list">
-        <li><button class="js-btn watched-btn">add to Watched</button></li>
-        <li><button class="js-btn queue-btn">add to queue</button></li>
+        <li><button class="modal-btn js-btn watched-btn">add to Watched</button></li>
+        <li><button class="modal-btn js-btn queue-btn">add to queue</button></li>
     </ul>
 </li>

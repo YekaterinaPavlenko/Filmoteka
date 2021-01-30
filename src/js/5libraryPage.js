@@ -13,12 +13,14 @@ const headerRef = document.querySelector('.header');
 //   watchedBtnRef.classList.toggle('is-hidden');
 //   queueBtnRef.classList.toggle('is-hidden');
 // });
-refs.homeBtn.addEventListener('click', () => {
+refs.homeBtn.addEventListener('click', mainPage);
+
+function mainPage() {
   refs.searchForm.classList.remove('is-hidden');
   watchedBtnRef.classList.add('is-hidden');
   queueBtnRef.classList.add('is-hidden');
   headerRef.classList.remove('bcg-libr');
-});
+}
 
 libraryBtnRef.addEventListener('click', () => {
   refs.searchForm.classList.add('is-hidden');
@@ -36,3 +38,6 @@ watchedBtnRef.addEventListener('click', () => {
   watchedBtnRef.classList.add('orange');
   queueBtnRef.classList.remove('orange');
 });
+
+// logo
+refs.logoBtn.addEventListener('click', mainPage);

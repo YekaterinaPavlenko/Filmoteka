@@ -123,6 +123,9 @@ li {
   justify-content: center;
   align-items: center;
 }
+.search-film-form.is-hidden {
+  display: none;
+}
 
 .search-film-form input {
   background: none;
@@ -193,7 +196,6 @@ li {
   border: 1px solid #ffffff;
   @media screen and (max-width: 767px) {
     width: 129px;
-    margin-left: 0;
   }
 }
 .home-button::after {
@@ -213,6 +215,10 @@ li {
 
 .library-navigation {
   text-align: center;
+
+  @media screen and (max-width: 767px) {
+    display: flex;
+  }
 }
 
 .orange {

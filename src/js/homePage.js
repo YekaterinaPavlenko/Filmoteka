@@ -1,4 +1,5 @@
 import refs from './refs';
+import genres from './genresList.js';
 // import notifications from './js/notifications.js'; //Подключить файл с нотификашкой
 import updateMarcup from './updateMarkupGallery.js';
 import LoadMoreBtn from './loadMoreBtn.js';
@@ -11,7 +12,7 @@ const loadMoreBtn = new LoadMoreBtn({
 
 // console.log(loadMoreBtn);
 const movieApiService = new MovieApiService(); //Создаю экземпляр класса поиска фильмов
-
+movieApiService.fetchGenresList().then(genres => console.log(genres));
 // refs.homeBtn.addEventListener('click', sendToHomePage); // слушатель на кнопке НОМЕ- отправляет на основную(первую) стр.
 // refs.logoBtn.addEventListener('click', sendToHomePage); // слушатель на кнопке Filmoteka ^ делает то же самое
 loadMoreBtn.refs.button.addEventListener('click', fetchPopMovies);
@@ -20,12 +21,10 @@ fetchPopMovies(); //Запрос и отрисовка главной стран
 loadMoreBtn.show(); // показывает кнопку "загрузить еще"
 
 function fetchPopMovies() {
-  // console.log(document.body.scrollHeight);   // сама ф-ция  запроса и отрисовки результата запроса
-  loadMoreBtn.enable();
+  loadMoreBtn.enable(); // сама ф-ция  запроса и отрисовки результата запроса
   movieApiService
-    .fetchPopularMovies()
+    .createPopMovieListWithGenres()
     .then(results => {
-      //   console.log(movieApiService.page);
       console.log(results);
       // if (results.length === 0) {
       //   // notifications.notFound(); //Вместо нотификашки подключить отбражение нотификации под формой 'это все фильмы, которые мы нашли'
@@ -43,7 +42,15 @@ function fetchPopMovies() {
     });
 }
 
-function sendToHomePage() {
-  movieApiService.resetPage();
-  fetchPopMovies();
+// function sendToHomePage() {
+//   event.preventDefault();
+//   movieApiService.resetPage();
+//   fetchPopMovies();
+// }
+
+function getIdName() {
+  movieApiService.fetchPopularMovies().then();
+  console.log(popMoviesList);
+  const genresList = fetchGenresList();
+  console.log(genresList);
 }

@@ -7,30 +7,113 @@
     <title>Filmoteka</title>
     <!-- Сюда будет всталена ссылка на файл стилей -->
     <!-- inject:css -->
-    <!-- endinject -->  
+    <!-- endinject -->
   </head>
 
   <body>
-   <div class="container"> 
-       <header>
-        </header>
+    <div class="container">
+      <header class="header">
+        <div class="header-nav container">
+          <a href="#" class="header-nav_logo js-logo-button" id="nav-logo">
+            <img
+              src="./images/film.png"
+              alt="site logo"
+              width="24"
+              height="24"
+            />
+
+            <h1 class="header-nav_h1">Filmoteka</h1>
+          </a>
+
+          <!-- header-nav_list -->
+          <ul class="header-nav_list">
+            <li class="header-nav_list-item">
+              <!-- navigation_list-item-link nav__btn-active home -->
+              <a
+                href="#"
+                class="header-nav_list-item-link current js-home-button"
+                id="home-page"
+                >HOME</a
+              >
+            </li>
+            <li class="header-nav_list-item">
+              <a
+                href="#"
+                class="header-nav_list-item-link library js-my-library-button"
+                id="library-page"
+                >MY LIBRARY</a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <!-- search-form -->
+          <!-- <form
+            class="search-film-form js-submit-form"
+            autocomplete="off"
+            id="search-form"
+          >
+            <input type="text" name="search" placeholder="Search" />
+            <p class="search-film-errors">
+              Search result not successful. Enter the correct movie name and
+            </p>
+          </form> -->
+          <form class="search-film-form js-submit-form" id="search-form">
+            <input
+              class="input input__form js-input-form"
+              type="text"
+              name="search"
+              autocomplete="off"
+              placeholder="Search"
+            />
+            <p class="search-film-errors">
+              Search result not successful. Enter the correct movie name and
+            </p>
+            <button class="btn submit-form" type="submit">Search</button>
+          </form>
+        </div>
+        <div class="library-navigation">
+          <button type="button" class="watched-show-btn is-hidden orange">
+            Watched
+          </button>
+          <button type="button" class="queue-show-btn is-hidden">Queue</button>
+        </div>
+      </header>
     </div>
 
     <main>
-        <div class="container">
-            <ul class="gallery">              
-            </ul>
-          </div>
+      <div class="container">
+        <ul class="gallery js-gallery"></ul>
+        <button
+          class="btn btn-more js-load_more"
+          type="button"
+          data-action="load-more"
+          disabled="true"
+        >
+          <span class="loader" role="status" aria-hidden="true"></span>
+          <span class="label">Show more</span>
+        </button>
+      </div>
     </main>
+    <button class="btn-video" data-modal-open>Клік по фільму</button>
+    <include src="./html/detailsPage.html"></include>
 
-    <!-- Сюда будет всталена ссылка на файл скриптов -->
-    <!-- inject:js -->
-    <!-- endinject -->
-    <button class="btn-video" data-modal-open>Клік по фільму</button>  
-    
     <div class="container">
-        <footer></footer>
+      <footer class="footer">
+        <div class="footer-box container">
+          <h2 class="footer-h2">
+            © 2020 | All Rights Reserved | Developed with
+            <span
+              ><img src="./images/heart.png" alt="heart" width="14" height="14"
+            /></span>
+            by
+            <a href="#">GoIT Students</a>
+          </h2>
+        </div>
+      </footer>
     </div>
+
     <div class="details-page">
       <div class="backdrop is-hidden" data-modal id="modal">
         <div class="js-backdrop">
@@ -40,6 +123,7 @@
             </div>
             <!-- end -->
         </div>
+      </div>
     </div>
   </body>
 </html>

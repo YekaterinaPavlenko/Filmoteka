@@ -1,3 +1,4 @@
+{{#each this}}
 <li class="modal-img content-img">
     <img src="https://image.tmdb.org/t/p/w300{{poster_path}}" alt="{{title}}">
 </li>
@@ -29,7 +30,8 @@
     <h3 class="about">About</h3>
     <p class="overview">{{overview}}</p>
     <ul class="btn-list">
-        <li><button class="modal-btn js-btn watched-btn">add to Watched</button></li>
-        <li><button class="modal-btn js-btn queue-btn">add to queue</button></li>
+      <li><button class="modal-btn js-btn watched-btn">add to Watched</button></li>
+      <li><button class="modal-btn js-btn queue-btn">add to queue</button></li>
     </ul>
 </li>
+{{/each}}

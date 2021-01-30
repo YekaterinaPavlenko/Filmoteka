@@ -1,5 +1,6 @@
 export default class MovieApiService {
   constructor() {
+    this.inputValue = '';
     this.searchQuery = '';
     this.page = 1;
     this.apiKey = '90996ae54f24edbe7886996fac12fc31';
@@ -69,7 +70,7 @@ export default class MovieApiService {
   createPopMovieListWithGenres() {
     return this.fetchPopularMovies().then(data => {
       return this.fetchGenresList().then(genresList => {
-        let release_date;
+        // let release_date;
         return data.map(movie => ({
           ...movie,
           year: movie.release_date ? movie.release_date.split('-')[0] : 'n/a',

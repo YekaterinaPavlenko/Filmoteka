@@ -1,3 +1,4 @@
+'use strict';
 import './sass/main.scss';
 import './js/refs.js';
 import './js/loadMoreBtn.js';

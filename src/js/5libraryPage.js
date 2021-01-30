@@ -1,6 +1,5 @@
 import refs from './refs';
-const libraryBtnRef = document.querySelector('.my-library-button');
-const homeBtnRef = document.querySelector('.home-button');
+const libraryBtnRef = document.querySelector('.js-my-library-button');
 const watchedBtnRef = document.querySelector('.watched-show-btn');
 const queueBtnRef = document.querySelector('.queue-show-btn');
 
@@ -14,7 +13,7 @@ const headerRef = document.querySelector('.header');
 //   watchedBtnRef.classList.toggle('is-hidden');
 //   queueBtnRef.classList.toggle('is-hidden');
 // });
-homeBtnRef.addEventListener('click', () => {
+refs.homeBtn.addEventListener('click', () => {
   refs.searchForm.classList.remove('is-hidden');
   watchedBtnRef.classList.add('is-hidden');
   queueBtnRef.classList.add('is-hidden');

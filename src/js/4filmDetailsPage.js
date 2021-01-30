@@ -1,4 +1,3 @@
-'use strict';
 import modalTpl from '../templates/detailsPage.hbs';
 
 const BASE_URL = 'https://api.themoviedb.org/3/';

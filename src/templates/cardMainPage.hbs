@@ -1,9 +1,9 @@
 {{#each this}}
 <li class="gallery-item">
-    <dev class="gallery-card">
-        <img src="https://image.tmdb.org/t/p/original{{poster_path}}" alt="{{title}}" class="gallery-image">
+    <div class="gallery-card">
+        <img src="https://image.tmdb.org/t/p/original{{poster_path}}" alt="{{title}}" class="gallery-image" data-id={{id}}>
         <h2 class="card-title" data-id="{{id}}">{{title}}</h2>
-        <dev class="card-content">
+        <div class="card-content">
             <ul class="card-movie_genres">
                 {{#each genres}}
                      <li>{{name}}</li>
@@ -11,8 +11,8 @@
             </ul>
              <p>| {{year}}</p>
             <span class="card-movie_rating">{{vote_average}}</span>
-        </dev>
-    </dev>
+        </div>
+    </div>
 </li>
 {{/each}}
 

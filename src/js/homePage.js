@@ -25,7 +25,7 @@ function fetchPopMovies() {
   movieApiService
     .createPopMovieListWithGenres()
     .then(results => {
-      // console.log(results);
+      console.log(results);
       // if (results.length === 0) {
       //   // notifications.notFound(); //Вместо нотификашки подключить отбражение нотификации под формой 'это все фильмы, которые мы нашли'
       // }

@@ -88,7 +88,7 @@
 
     <main>
       <div class="container">
-        <ul class="gallery js-gallery"></ul>
+        <ul class="gallery js-gallery js-modal-open"></ul>
         <button
           class="btn btn-more js-load_more"
           type="button"
@@ -100,12 +100,9 @@
         </button>
       </div>
     </main>
-<<<<<<< HEAD
 
-=======
->>>>>>> b474423be93b87ee1a1f9893700fd0156ff86eca
     <button class="btn-video" data-modal-open>Клік по фільму</button>
-    <include src="./html/detailsPage.html"></include>
+    <!-- <include src="./html/detailsPage.html"></include> -->
 
     <div class="container">
       <footer class="footer">
@@ -122,16 +119,16 @@
       </footer>
     </div>
 
-    <div class="details-page">
-      <div class="backdrop is-hidden" data-modal id="modal">
-        <div class="js-backdrop">
-          <!-- start -->
-          <div class="modal">
-            <ul class="backdrop-content"></ul>
-          </div>
-          <!-- end -->
-        </div>
+    <!-- <div class="details-page"> -->
+    <div class="backdrop is-hidden js-backdrop" data-modal id="modal">
+      <!-- <div class="js-backdrop"> -->
+      <!-- start -->
+      <div class="modal">
+        <ul class="backdrop-content"></ul>
       </div>
+      <!-- end -->
+      <!-- </div> -->
     </div>
+    <!-- </div> -->
   </body>
 </html>

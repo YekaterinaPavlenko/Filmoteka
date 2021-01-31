@@ -78,7 +78,7 @@ export default class MovieApiService {
             ? movie.genre_ids
                 .map(id => genresList.filter(el => el.id === id))
                 .flat()
-            : 'n/a',
+            : 'watch the movie and decide',
         }));
       });
     });

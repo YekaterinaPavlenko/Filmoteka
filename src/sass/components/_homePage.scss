@@ -22,17 +22,19 @@
 /////////////////////////новые стили для карточек.
 .gallery {
   padding: 0px;
-  // margin-left: 20px;
-  // margin-right: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  //margin-left: 20px;
+  //margin-right: 20px;
   @media screen and (min-width: 768px) {
     display: flex;
     flex-wrap: wrap;
-    margin-left: 75px;
+    //margin-left: 75px;
     //margin-right: 75px;
   }
   @media screen and (min-width: 1024px) {
-    margin-left: 70px;
-    margin-right: 70px;
+    //margin-left: 70px;
+    //margin-right: 70px;
   }
 }
 .gallery-item {
@@ -53,7 +55,7 @@
     width: calc((100% - 30px * 2) / 3);
   }
 }
-.gallery-item:nth-last-child(2n) {
+.gallery-item:not(:nth-last-child(2n)) {
   @media screen and (min-width: 768px) {
     margin-right: 0px;
   }
@@ -68,27 +70,39 @@
 }
 
 .gallery-image {
-  width: 100%;
+  width: 280px;
   margin-bottom: 10px;
   border-radius: 5px;
   @media screen and (min-width: 768px) {
-    min-width: 293px;
+    width: 293px;
   }
   @media screen and (min-width: 1024px) {
-    min-width: 274px;
+    width: 274px;
   }
 }
 .card-title {
   color: black;
   margin-top: 0px;
   margin-bottom: 5px;
-  max-width: 274px;
+  width: 274px;
+  @media screen and (min-width: 768px) {
+    width: 293px;
+  }
+  @media screen and (min-width: 1024px) {
+    width: 274px;
+  }
 }
 .card-content {
-  color: orange;
+  color: #ff6b08;
   display: flex;
   margin: 0px;
-  max-width: 274px;
+  width: 274px;
+  @media screen and (min-width: 768px) {
+    width: 293px;
+  }
+  @media screen and (min-width: 1024px) {
+    width: 274px;
+  }
   & p {
     margin: 0px;
   }
@@ -97,14 +111,20 @@
   }
 }
 
-////// раскоментируй и доделай стили подписи на картах
+.card-movie_genres {
+  display: flex;
+  & li {
+    margin-right: 5px;
+  }
+}
 
-// .card-movie_genres {
-//   ////add styles
-// }
-
-// .card-movie_rating {
-//  // Доделать стили
-// }
+.card-movie_rating {
+  width: 36px;
+  margin-left: 16px;
+  border-radius: 5px;
+  background-color: #ff6b01;
+  color: white;
+  text-align: center;
+}
 
 ///////////////////////////////////////////

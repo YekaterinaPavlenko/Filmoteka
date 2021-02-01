@@ -1,5 +1,6 @@
 import refs from './refs';
 import notifications from './notifications.js';
+import addPaginationMarkup from './pagenationMarkup.js';
 import updateMarcup from './updateMarkupGallery.js';
 import LoadMoreBtn from './loadMoreBtn.js';
 import MovieApiService from './apiService.js';
@@ -16,6 +17,7 @@ refs.logoBtn.addEventListener('click', sendToHomePage); // слушатель н
 loadMoreBtn.refs.button.addEventListener('click', uploadMovies);
 
 fetchPopMovies(); //Запрос и отрисовка главной страницы при  первой загрузке
+addPaginationMarkup(); //Запрос и отрисовка главной страницы при  первой загрузке
 loadMoreBtn.show(); // показывает кнопку "загрузить еще"
 
 // ф-ция запроса популярных фильмов и отрисовки результата запроса

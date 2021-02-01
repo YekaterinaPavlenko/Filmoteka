@@ -3,18 +3,22 @@ import modalTpl from '../templates/detailsPage.hbs';
 import MovieApiService from './apiService.js';
 import { parse } from 'handlebars';
 
+
 // const BASE_URL = 'https://api.themoviedb.org/3/';
 const API_KEY = 'c2406e33bae3c04a8fdebb618c81ede7';
 
 // console.log(refs.openModal);
 // console.log(refs.modal);
 
+
 refs.openModal.addEventListener('click', openModal);
 
 let id;
 
 function openModal(event) {
-  // console.log(event.target);
+  event.preventDefault();
+   // console.log(event.target);
+
   if (event.target.nodeName !== 'IMG') {
     return;
   }
@@ -31,9 +35,7 @@ function closeModal(e) {
   e.preventDefault();
   if (e.code == 'Escape' || e.target.classList.contains('js-backdrop')) {
     refs.modalBox.classList.add('is-hidden');
-
     refs.modalContent.innerHTML = '';
-
     window.removeEventListener('keydown', closeModal);
     refs.backdrop.removeEventListener('click', closeModal);
     refs.openModal.addEventListener('click', openModal);
@@ -42,14 +44,9 @@ function closeModal(e) {
 }
 
 function fetchFilm(id) {
-  return fetch(
-    // `https://api.themoviedb.org/3/movie/55?api_key=c2406e33bae3c04a8fdebb618c81ede7`,
-    `https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}`,
-  )
+  return fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}`)
     .then(response => response.json())
-
     .then(movie => {
-      // console.log(movie);
       appendMarkup(movie);
     });
 }

@@ -13,5 +13,8 @@ const refs = {
   modalContent: document.querySelector('.backdrop-content'),
   modal: document.querySelector('.modal'),
   modalBox: document.querySelector('[data-modal]'),
+  header: document.querySelector('.header'),
+  footer: document.querySelector('.footer'),
+  main: document.querySelector('main'),
 };
 export default refs;

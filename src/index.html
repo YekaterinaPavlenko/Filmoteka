@@ -105,7 +105,7 @@
       <div class="container pagination__container"></div>
     </main>
 
-    <button class="btn-video" data-modal-open>Клік по фільму</button>
+
     <!-- <include src="./html/detailsPage.html"></include> -->
 
     <div class="container">
@@ -125,9 +125,64 @@
 
     <div class="backdrop is-hidden js-backdrop" data-modal id="modal">
       <!-- start -->
+      <div class="container">
+      <header class="header modal-header">
+        <div class="header-nav">
+          <a
+            href="./index.html"
+            class="header-nav_logo js-logo-button"
+            id="nav-logo"
+          >
+            <img
+              src="./images/film.png"
+              alt="site logo"
+              width="24"
+              height="24"
+            />
+
+            <h1 class="header-nav_h1">Filmoteka</h1>
+          </a>
+
+          <!-- header-nav_list -->
+          <ul class="header-nav_list">
+            <li class="header-nav_list-item">
+              <!-- navigation_list-item-link nav__btn-active home -->
+              <a
+                href="#"
+                class="header-nav_list-item-link current js-home-button"
+                id="home-page"
+                >HOME</a
+              >
+            </li>
+            <li class="header-nav_list-item">
+              <a
+                href="#"
+                class="header-nav_list-item-link library js-my-library-button"
+                id="library-page"
+                >MY LIBRARY</a
+              >
+            </li>
+          </ul>
+        </div>
+      </header>
+
       <div class="modal">
         <ul class="backdrop-content"></ul>
       </div>
+      
+      <footer class="footer">
+        <div class="footer-box container">
+          <h2 class="footer-h2">
+            © 2020 | All Rights Reserved | Developed with
+            <span
+              ><img src="./images/heart.png" alt="heart" width="14" height="14"
+            /></span>
+            by
+            <a href="#">GoIT Students</a>
+          </h2>
+        </div>
+      </footer>
+    </div>
       <!-- end -->
     </div>
   </body>

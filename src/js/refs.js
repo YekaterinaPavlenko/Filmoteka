@@ -1,6 +1,8 @@
 const refs = {
   body: document.querySelector('.body'),
   searchForm: document.querySelector('#search-form'),
+  notFoundNotice: document.querySelector('.js-search-error'),
+  allFoundFilms: document.querySelector('.js-search-all_found'),
   gallery: document.querySelector('.js-gallery'),
   openModal: document.querySelector('.js-modal-open'),
   submitBtn: document.querySelector('.js-submit-form'),

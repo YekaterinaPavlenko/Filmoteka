@@ -1,6 +1,7 @@
 'use strict';
 import './sass/main.scss';
 import './js/refs.js';
+import './js/notifications.js';
 import './js/loadMoreBtn.js';
 import './js/apiService.js';
 import './templates/cardMainPage.hbs';

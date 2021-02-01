@@ -3,7 +3,9 @@ import modalTpl from '../templates/detailsPage.hbs';
 import MovieApiService from './apiService.js';
 import { parse } from 'handlebars';
 
+
 const BASE_URL = 'https://api.themoviedb.org/3/';
+
 const API_KEY = 'c2406e33bae3c04a8fdebb618c81ede7';
 
 // console.log(refs.openModal);
@@ -78,7 +80,7 @@ function addFilmsToLibrary() {
   }
 
   function handleBtnQueue() {
-    queueBtn.textContent = 'Delete from watched';
+    queueBtn.textContent = 'Delete from Queue';
 
     addToQueue(id);
   }
@@ -90,8 +92,10 @@ let filmsWatched = [];
 
 function addToWatched() {
   let localStorageData = localStorage.getItem('filmsWatched');
+  console.log(localStorage.getItem('filmsWatched'));
   if (localStorageData) {
     filmsWatched = [...JSON.parse(localStorageData)];
+    console.log(filmsWatched);
   }
   let currentIdFilm = id;
 
@@ -107,6 +111,7 @@ let filmsQueue = [];
 
 function addToQueue() {
   let localStorageData = localStorage.getItem('filmsQueue');
+  console.log(localStorage.getItem('filmsQueue'));
   if (localStorageData) {
     filmsQueue = [...JSON.parse(localStorageData)];
   }

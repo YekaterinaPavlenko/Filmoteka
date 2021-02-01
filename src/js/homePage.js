@@ -26,6 +26,7 @@ function fetchPopMovies(event) {
   movieApiService
     .createPopMovieListWithGenres()
     .then(results => {
+      console.log(results);
       notifications.removeNotifications();
       updateMarcup(results);
     })

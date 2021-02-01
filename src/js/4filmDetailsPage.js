@@ -3,13 +3,11 @@ import modalTpl from '../templates/detailsPage.hbs';
 import MovieApiService from './apiService.js';
 import { parse } from 'handlebars';
 
-
-// const BASE_URL = 'https://api.themoviedb.org/3/';
+const BASE_URL = 'https://api.themoviedb.org/3/';
 const API_KEY = 'c2406e33bae3c04a8fdebb618c81ede7';
 
 // console.log(refs.openModal);
 // console.log(refs.modal);
-
 
 refs.openModal.addEventListener('click', openModal);
 
@@ -17,7 +15,7 @@ let id;
 
 function openModal(event) {
   event.preventDefault();
-   // console.log(event.target);
+  // console.log(event.target);
 
   if (event.target.nodeName !== 'IMG') {
     return;
@@ -25,6 +23,9 @@ function openModal(event) {
   id = event.target.dataset.id;
   // console.log(id);
   refs.modalBox.classList.remove('is-hidden');
+  refs.header.classList.add('is-hidden');
+  refs.footer.classList.add('is-hidden');
+  refs.main.classList.add('is-hidden');
   fetchFilm(id);
   refs.openModal.removeEventListener('click', openModal);
   window.addEventListener('keydown', closeModal);
@@ -35,6 +36,9 @@ function closeModal(e) {
   e.preventDefault();
   if (e.code == 'Escape' || e.target.classList.contains('js-backdrop')) {
     refs.modalBox.classList.add('is-hidden');
+    refs.header.classList.remove('is-hidden');
+    refs.footer.classList.remove('is-hidden');
+    refs.main.classList.remove('is-hidden');
     refs.modalContent.innerHTML = '';
     window.removeEventListener('keydown', closeModal);
     refs.backdrop.removeEventListener('click', closeModal);
@@ -44,7 +48,7 @@ function closeModal(e) {
 }
 
 function fetchFilm(id) {
-  return fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}`)
+  return fetch(`${BASE_URL}movie/${id}?api_key=${API_KEY}`)
     .then(response => response.json())
     .then(movie => {
       appendMarkup(movie);

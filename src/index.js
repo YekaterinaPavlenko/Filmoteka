@@ -9,3 +9,4 @@ import './js/updateMarkupGallery.js';
 import './js/homePage.js';
 import './js/4filmDetailsPage.js';
 import './js/5libraryPage';
+import './js/ScrollUp';

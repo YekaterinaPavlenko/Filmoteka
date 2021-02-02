@@ -1,6 +1,6 @@
-<li class="modal-img content-img">
-    <div class="gallery-image">
-    <img src="https://image.tmdb.org/t/p/w300{{poster_path}}" alt="{{title}}">
+<li class="gallery-item">
+    <div class="gallery-card">
+    <img src="https://image.tmdb.org/t/p/w300{{poster_path}}" alt="{{title}}" class="gallery-image">
     </div>
 </li>
 <li class="modal-description content-description">
@@ -22,7 +22,7 @@
             <p class="description-header">Genre</p>
             <ul class="genre-list">
                 {{#each genres}}
-                <li>{{name}}</li>
+                <li><p>{{name}}</p></li>
                 {{/each}}
             </ul>
         </li>

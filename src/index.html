@@ -118,23 +118,19 @@
 
     <div class="backdrop is-hidden js-backdrop" data-modal id="modal">
       <!-- start -->
-      <div class="container">
-        <header class="header modal-header">
+
+        <header class="header">
           <div class="header-nav">
             <a
               href="./index.html"
               class="header-nav_logo js-logo-button"
               id="nav-logo"
             >
-              <img
-                src="./images/film.png"
-                alt="site logo"
-                width="24"
-                height="24"
-              />
+              <img src="./images/film.png" alt="site logo" width="24" height="24" />
+    
               <h1 class="header-nav_h1">Filmoteka</h1>
             </a>
-
+    
             <!-- header-nav_list -->
             <ul class="header-nav_list">
               <li class="header-nav_list-item">
@@ -156,28 +152,35 @@
               </li>
             </ul>
           </div>
+    
+          <div class="library-navigation is-hidden">
+            <button type="button" class="watched-show-btn is-hidden orange">
+              Watched
+            </button>
+            <button type="button" class="queue-show-btn is-hidden">Queue</button>
+          </div>
         </header>
+
         <div class="modal">
           <ul class="backdrop-content"></ul>
         </div>
 
         <footer class="footer">
+          <!-- class footer-wrapper -->
           <div class="footer-box container">
-            <h2 class="footer-h2">
-              © 2020 | All Rights Reserved | Developed with
+            <!-- class footer-title -->
+            <h4 class="footer-copyright">
+              <span>© 2020 | All Rights Reserved |</span>
               <span
-                ><img
-                  src="./images/heart.png"
-                  alt="heart"
-                  width="14"
-                  height="14"
-              /></span>
-              by
-              <a href="#">GoIT Students</a>
-            </h2>
+                >Developed with
+                <img src="./images/heart.png" alt="heart" width="14" height="14" />
+                by <a href="#">GoIT Students</a></span
+              >
+            </h4>
+            <a class="swipe-up" title="top"></a>
           </div>
         </footer>
-      </div>
+
       <!-- end -->
     </div>
   </body>

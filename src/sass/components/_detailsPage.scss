@@ -1,47 +1,10 @@
-li {
-  list-style: none;
-}
+// li {
+//   list-style: none;
+// }
 
-ul {
-  padding-inline-start: 0px;
-}
-
-.modal-header {
-  height: 230px;
-  padding: 0 20px;
-  background-color: rgba(0, 0, 0, 0.56);
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-
-  @media screen and (min-width: 1024px) {
-    background-image: linear-gradient(
-        to right,
-        rgba(0, 0, 0, 0.56),
-        rgba(0, 0, 0, 0.56)
-      ),
-      url(../images/rectangle_11_1024.jpg);
-  }
-
-  @media screen and (min-width: 768px) and (max-width: 1023px) {
-    padding: 0px;
-    background-image: linear-gradient(
-        to right,
-        rgba(0, 0, 0, 0.56),
-        rgba(0, 0, 0, 0.56)
-      ),
-      url(../images/rectangle_11_1024.jpg);
-  }
-
-  @media screen and (min-width: 320px) {
-    background-image: linear-gradient(
-        to right,
-        rgba(0, 0, 0, 0.56),
-        rgba(0, 0, 0, 0.56)
-      ),
-      url(../images/rectangle_11_320.jpg);
-  }
-}
+// ul {
+//   padding-inline-start: 0px;
+// }
 
 .modal {
   position: relative;
@@ -73,32 +36,28 @@ ul {
     // width: 496px;
     width: auto;
     // height: 514px;
-    padding-left: 71px;
-    padding-top: 60px;
-    padding-right: 30px;
-    padding-bottom: 60px;
+    // padding-left: 71px;
+    // padding-top: 60px;
+    // padding-right: 30px;
+    // padding-bottom: 60px;
+
+    @media screen and (max-width: 320px) {
+      top: 0px;
+      width: 280px;
+      // padding: 10px;
+      margin-bottom: 10px;
+      border-radius: 5px;
+    }
   }
 
   @media screen and (min-width: 321px) and (max-width: 768px) {
     img {
-      padding-left: 75px;
+      // padding-left: 75px;
       // width: 294px;
       width: auto;
       // height: 416px;
     }
   }
-
-  @media screen and (max-width: 320px) {
-    img {
-      width: 280px;
-      // height: 416px;
-    }
-  }
-  // @media screen and (max-width: 599px) {
-  //   top: 0px;
-  //   left: 100%;
-  // transform: translateX(-50%);
-  // }
 }
 
 .backdrop.opened {
@@ -112,21 +71,12 @@ ul {
   }
   @media screen and (min-width: 768px) {
     display: flex;
-    // align-items: center;
+    align-items: center;
 
     & > li {
       width: 100%;
     }
   }
-
-  & .content-img {
-    // margin-right: 30px;
-    // margin-top: 10px;
-  }
-}
-
-.modal-description {
-  padding-top: 60px;
 }
 
 .content-description {
@@ -138,7 +88,6 @@ ul {
   }
 
   & h2 {
-    // padding-bottom: 20px;
     font-style: 500 30px/1.17 'Roboto', sans-serif;
     text-transform: uppercase;
   }
@@ -150,7 +99,6 @@ ul {
   }
 
   & h3 {
-    // margin-bottom: 20px;
     text-transform: uppercase;
     font-style: 500 12px/1.33 'Roboto', sans-serif;
   }
@@ -160,7 +108,6 @@ ul {
   }
 
   & .overview {
-    // margin-bottom: 20px;
     padding-left: 0px;
     padding-right: 20px;
     padding-top: 20px;
@@ -168,7 +115,7 @@ ul {
 
     @media screen and (min-width: 768px) {
       padding-left: 0px;
-      // padding-right: 75px;
+      padding-right: 75px;
       padding-top: 20px;
       padding-bottom: 20px;
       width: 90%;
@@ -184,7 +131,7 @@ ul {
   }
 
   @media screen and (min-width: 320px) {
-    width: 30%;
+    width: 50%;
   }
 }
 
@@ -193,10 +140,17 @@ ul {
   color: $grey-color;
 }
 
-.genre-list > li {
+ul.genre-list {
+  margin: 0;
+  padding: 4px;
   display: flex;
-  flex-wrap: no-wrap;
-  // margin-right: auto;
+  flex-wrap: nowrap;
+}
+
+.genre-list > li {
+  display: inline;
+  margin-right: 5px;
+  padding: 3px;
 }
 
 .genre-list li:not(:last-child) {
@@ -210,10 +164,6 @@ ul {
   border-radius: 5px;
 }
 
-.description-overview {
-  width: 70%;
-}
-
 .btn-list {
   display: flex;
   padding: 10px;
@@ -221,10 +171,6 @@ ul {
 
   & li {
     width: 50%;
-
-    // @media screen and (min-width: 768px) {
-    //   width: 30%;
-    // }
   }
 
   & li:not(:last-child) {
@@ -264,12 +210,15 @@ ul {
 }
 
 .backdrop {
+  width: 100%;
   margin-left: auto;
   margin-right: auto;
-  position: fixed;
+  // position: fixed;
   top: 0px;
-  left: 20px;
-  right: 20px;
+  // left: 20px;
+  // right: 20px;
+  // padding-left: 50px;
+  // padding-right: 50px;
   bottom: 0px;
   background-color: rgba(0, 0, 0, 0.2);
   pointer-events: initial;

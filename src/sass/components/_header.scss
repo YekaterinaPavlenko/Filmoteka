@@ -1,13 +1,5 @@
-// .header a {
-//   text-decoration: none;
-// }
-// li {
-//   list-style-type: none;
-// }
-
 .header {
   height: 230px;
-  padding: 0 20px;
   background-color: rgba(0, 0, 0, 0.56);
   background-image: linear-gradient(
       to right,
@@ -119,24 +111,39 @@
 
 //search-form
 .search-film-form {
+  // width: 35%;
+
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 100%;
+  margin: 0 auto;
+
+  @media (min-width: 768px) {
+    width: 360px;
+  }
 }
-.search-film-form.is-hidden {
-  display: none;
+
+.search-film-inputs {
+  position: relative;
+  width: 100%;
 }
 
 .search-film-form input {
+  border: none;
+}
+
+.search-film-form .input {
+  background: #eee;
+  font: 13px Tahoma, Arial, sans-serif;
+  color: #555;
+  outline: none;
   background: none;
-  background-image: url(../images/search_icon.png);
   padding: 1px;
-  background-repeat: no-repeat;
-  background-position: center right;
-  width: 280px;
+  width: 100%;
   max-width: 100%;
-  // font-family: 'Roboto', sans-serif;
   font-size: 14px;
   line-height: 1.7;
   color: #ffffff;
@@ -155,7 +162,26 @@
 
   @media (min-width: 768px) {
     font-size: 17px;
-    width: 360px;
+    width: 100%;
+  }
+}
+
+/* кнопка пошуку */
+.search-film-form .submit {
+  right: -10px;
+  top: 50%;
+  transform: translateY(-50%);
+  position: absolute;
+  outline: none;
+  width: 37px;
+  height: 37px;
+  cursor: pointer;
+  background: url(../images/search_icon.png) 50% no-repeat;
+  color: #ffffff;
+  // opacity: 0.5;
+
+  &:hover {
+    opacity: 0.8;
   }
 }
 
@@ -169,7 +195,6 @@
 //header-library
 .home-button,
 .my-library-button {
-  // font-family: 'Roboto', sans-serif;
   font-weight: 500;
   font-size: 12px;
   line-height: 1.17;

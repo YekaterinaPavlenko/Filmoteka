@@ -69,33 +69,32 @@ function appendMarkup(movie) {
   queueBtn.addEventListener('click', handleBtnQueue);
 
   function handleBtnWatched() {
-    addToWatched(id);
+    toggleToWatched(id);
   }
 
   function handleBtnQueue() {
-    addToQueue(id);
+    toggleToQueue(id);
   }
 
   /*функции проверяющие есть ли в массивах текущий фильм, если нет - добавляет его в локальное хранилище*/
 
-  function handleBtnWatched() {
+  function toggleToWatched() {
     let filmsWatched = [];
     let localStorageData = localStorage.getItem('filmsWatched');
     if (localStorageData) {
       filmsWatched = [...JSON.parse(localStorageData)];
     }
     let currentIdFilm = id;
-
-    let filmId = filmsWatched.find(el => el === currentIdFilm);
-    if (filmId === currentIdFilm) {
-      return;
-    }
-    filmsWatched.push(id);
+    const index = filmsWatched.indexOf(currentIdFilm);
+    // let filmId = filmsWatched.find(el => el === currentIdFilm);
+    if (index > -1) {
+      filmsWatched.splice(index, 1);
+    } else filmsWatched.push(id);
     localStorage.setItem('filmsWatched', JSON.stringify(filmsWatched));
     monitorBtnChange();
   }
 
-  function handleBtnQueue() {
+  function toggleToQueue() {
     let filmsQueue = [];
     let localStorageData = localStorage.getItem('filmsQueue');
     // console.log(localStorage.getItem('filmsQueue'));
@@ -103,12 +102,11 @@ function appendMarkup(movie) {
       filmsQueue = [...JSON.parse(localStorageData)];
     }
     let currentIdFilm = id;
-
-    let filmId = filmsQueue.find(el => el === currentIdFilm);
-    if (filmId === currentIdFilm) {
-      return;
-    }
-    filmsQueue.push(id);
+    const index = filmsQueue.indexOf(currentIdFilm);
+    // let filmId = filmsQueue.find(el => el === currentIdFilm);
+    if (index > -1) {
+      filmsQueue.splice(index, 1);
+    } else filmsQueue.push(id);
     localStorage.setItem('filmsQueue', JSON.stringify(filmsQueue));
     monitorBtnChange();
   }

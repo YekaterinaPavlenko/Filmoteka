@@ -13,3 +13,4 @@ import './js/pagenationMarkup.js';
 import './js/4filmDetailsPage.js';
 import './js/5libraryPage';
 import './js/ScrollUp';
+import './js/spinner.js';

@@ -14,7 +14,7 @@ ul {
   background-size: cover;
   background-repeat: no-repeat;
 
-  @media screen and (min-width: 769px) and (max-width: 1600px) {
+  @media screen and (min-width: 1024px) {
     background-image: linear-gradient(
         to right,
         rgba(0, 0, 0, 0.56),
@@ -23,17 +23,17 @@ ul {
       url(../images/rectangle_11_1024.jpg);
   }
 
-  @media screen and (min-width: 321px) and (max-width: 768px) {
+  @media screen and (min-width: 768px) and (max-width: 1023px) {
     padding: 0px;
     background-image: linear-gradient(
         to right,
         rgba(0, 0, 0, 0.56),
         rgba(0, 0, 0, 0.56)
       ),
-      url(../images/rectangle_11_768.jpg);
+      url(../images/rectangle_11_1024.jpg);
   }
 
-  @media screen and (max-width: 320px) {
+  @media screen and (min-width: 320px) {
     background-image: linear-gradient(
         to right,
         rgba(0, 0, 0, 0.56),
@@ -57,14 +57,21 @@ ul {
   width: 100%;
   // height: 634px;
 
-  @media screen and (max-width: 768px) {
+  @media screen and (min-width: 768px) {
     top: 0px;
     left: 50%;
     transform: translateX(-50%);
   }
 
+  // @media screen and (max-width: 768px) {
+  //   top: 0px;
+  //   // left: 50%;
+  //   // transform: translateX(-50%);
+  // }
+
   & img {
-    width: 496px;
+    // width: 496px;
+    width: auto;
     // height: 514px;
     padding-left: 71px;
     padding-top: 60px;
@@ -72,10 +79,11 @@ ul {
     padding-bottom: 60px;
   }
 
-  @media screen and (max-width: 768px) {
+  @media screen and (min-width: 321px) and (max-width: 768px) {
     img {
       padding-left: 75px;
-      width: 294px;
+      // width: 294px;
+      width: auto;
       // height: 416px;
     }
   }
@@ -99,17 +107,16 @@ ul {
 }
 
 .backdrop-content {
+  & > li {
+    width: 100%;
+  }
   @media screen and (min-width: 768px) {
     display: flex;
     // align-items: center;
 
     & > li {
-      width: 50%;
+      width: 100%;
     }
-  }
-
-  & > li {
-    width: 100%;
   }
 
   & .content-img {
@@ -118,16 +125,13 @@ ul {
   }
 }
 
-.backdrop-content .content-description {
-  // margin-bottom: 10px;
-}
-
 .modal-description {
   padding-top: 60px;
 }
 
 .content-description {
   padding-top: 40px;
+
   & ul {
     margin-top: -10px;
     margin-bottom: -10px;
@@ -161,11 +165,27 @@ ul {
     padding-right: 20px;
     padding-top: 20px;
     padding-bottom: 20px;
+
+    @media screen and (min-width: 768px) {
+      padding-left: 0px;
+      // padding-right: 75px;
+      padding-top: 20px;
+      padding-bottom: 20px;
+      width: 90%;
+    }
   }
 }
 
 .modal-list > li p {
   width: 40%;
+
+  @media screen and (min-width: 768px) {
+    width: 30%;
+  }
+
+  @media screen and (min-width: 320px) {
+    width: 30%;
+  }
 }
 
 .description-header {
@@ -173,10 +193,10 @@ ul {
   color: $grey-color;
 }
 
-.genre-list li {
+.genre-list > li {
   display: flex;
-  flex-wrap: wrap;
-  margin-right: auto;
+  flex-wrap: no-wrap;
+  // margin-right: auto;
 }
 
 .genre-list li:not(:last-child) {
@@ -190,11 +210,21 @@ ul {
   border-radius: 5px;
 }
 
+.description-overview {
+  width: 70%;
+}
+
 .btn-list {
   display: flex;
+  padding: 10px;
+  margin: 10px;
 
   & li {
     width: 50%;
+
+    // @media screen and (min-width: 768px) {
+    //   width: 30%;
+    // }
   }
 
   & li:not(:last-child) {
@@ -203,10 +233,14 @@ ul {
 }
 
 .backdrop button {
+  width: 136px;
+  height: 44px;
   padding: 14px 20px;
   border: 1px solid $dark-color;
   box-sizing: border-box;
   border-radius: 5px;
+  font-size: 12px;
+  line-height: 16px;
   font-style: 500 12px/1.33 'Roboto', sans-serif;
   display: flex;
   align-items: center;
@@ -226,10 +260,6 @@ ul {
     background: $bkg-btn-color;
     color: $white-color;
     border: none;
-  }
-
-  @media screen and (max-width: 1024px) {
-    min-width: 320px;
   }
 }
 

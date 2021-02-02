@@ -18,5 +18,9 @@ const refs = {
   pagingList: document.querySelector('.js-pagination-box_pages'),
   footer: document.querySelector('.footer'),
   main: document.querySelector('main'),
+  libraryBtnRef: document.querySelector('.js-my-library-button'),
+  watchedBtnRef: document.querySelector('.watched-show-btn'),
+  queueBtnRef: document.querySelector('.queue-show-btn'),
+  headerRef: document.querySelector('.header'),
 };
 export default refs;

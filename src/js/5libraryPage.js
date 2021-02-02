@@ -12,12 +12,16 @@ function mainPage() {
   refs.watchedBtnRef.classList.add('is-hidden');
   refs.queueBtnRef.classList.add('is-hidden');
   refs.headerRef.classList.remove('bcg-libr');
+  refs.libraryBtnRef.classList.remove('current');
+  refs.homeBtn.classList.add('current');
 }
 function library() {
   refs.searchForm.classList.add('is-hidden');
   refs.watchedBtnRef.classList.remove('is-hidden');
   refs.queueBtnRef.classList.remove('is-hidden');
   refs.headerRef.classList.add('bcg-libr');
+  refs.libraryBtnRef.classList.add('current');
+  refs.homeBtn.classList.remove('current');
 }
 function queue() {
   refs.watchedBtnRef.classList.remove('orange');

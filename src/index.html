@@ -11,65 +11,81 @@
   </head>
 
   <body>
+    <!-- header main -->
     <header class="header">
-      <div class="header-nav container">
-        <a
-          href="./index.html"
-          class="header-nav_logo js-logo-button"
-          id="nav-logo"
-        >
-          <img src="./images/film.png" alt="site logo" width="24" height="24" />
+      <div class="container">
+        <div class="header-nav">
+          <a
+            href="./index.html"
+            class="header-nav_logo js-logo-button"
+            id="nav-logo"
+          >
+            <img
+              src="./images/film.png"
+              alt="site logo"
+              width="24"
+              height="24"
+            />
 
-          <h1 class="header-nav_h1">Filmoteka</h1>
-        </a>
+            <h1 class="header-nav_h1">Filmoteka</h1>
+          </a>
 
-        <!-- header-nav_list -->
-        <ul class="header-nav_list">
-          <li class="header-nav_list-item">
-            <!-- navigation_list-item-link nav__btn-active home -->
-            <a
-              href="#"
-              class="header-nav_list-item-link current js-home-button"
-              id="home-page"
-              >HOME</a
-            >
-          </li>
-          <li class="header-nav_list-item">
-            <a
-              href="#"
-              class="header-nav_list-item-link library js-my-library-button"
-              id="library-page"
-              >MY LIBRARY</a
-            >
-          </li>
-        </ul>
-      </div>
+          <!-- header-nav_list -->
+          <ul class="header-nav_list">
+            <li class="header-nav_list-item">
+              <!-- navigation_list-item-link nav__btn-active home -->
+              <a
+                href="#"
+                class="header-nav_list-item-link current js-home-button"
+                id="home-page"
+                >HOME</a
+              >
+            </li>
+            <li class="header-nav_list-item">
+              <a
+                href="#"
+                class="header-nav_list-item-link library js-my-library-button"
+                id="library-page"
+                >MY LIBRARY</a
+              >
+            </li>
+          </ul>
+        </div>
 
-      <div>
-        <!-- search-form -->
-        <form class="search-film-form js-submit-form" id="search-form">
-          <input
-            class="input input__form js-input-form"
-            type="text"
-            name="search"
+        <div>
+          <!-- search-form -->
+          <form
+            action=""
+            class="search-film-form js-submit-form"
+            id="search-form"
             autocomplete="off"
-            placeholder="Search"
-          />
-          <p class="search-film-errors js-search-error is-hidden">
-            Search result not successful. Enter the correct movie name
-          </p>
-          <p class="search-film-errors js-search-all_found is-hidden">
-            These are all the films we found
-          </p>
-          <button class="btn submit-form" type="submit">Search</button>
-        </form>
-      </div>
+          >
+            <div class="search-film-inputs">
+              <input
+                type="search"
+                name="search"
+                placeholder="Search"
+                class="input input__form js-input-form"
+              />
+              <input type="submit" name="" value="" class="submit" />
+            </div>
+            <div class="search-film-notifications">
+              <p class="search-film-errors js-search-error is-hidden">
+                Search result not successful. Enter the correct movie name
+              </p>
+              <p class="search-film-errors js-search-all_found is-hidden">
+                These are all the films we found
+              </p>
+            </div>
+          </form>
+        </div>
 
-      <div class="library-navigation">
-        <button type="button" class="watched-show-btn is-hidden orange">
-          Watched
-        </button>
-        <button type="button" class="queue-show-btn is-hidden">Queue</button>
+        <div class="library-navigation">
+          <button type="button" class="watched-show-btn is-hidden orange">
+            Watched
+          </button>
+          <button type="button" class="queue-show-btn is-hidden">Queue</button>
+        </div>
       </div>
     </header>
 
@@ -91,16 +107,68 @@
       </div>
     </main>
 
+    <!-- footer main -->
     <footer class="footer">
-      <!-- class footer-wrapper -->
       <div class="footer-box container">
-        <!-- class footer-title -->
         <h4 class="footer-copyright">
           <span>© 2020 | All Rights Reserved |</span>
           <span
             >Developed with
             <img src="./images/heart.png" alt="heart" width="14" height="14" />
-            by <a href="#">GoIT Students</a></span
+            by
+            <a href="#" class="film-tooltip-container">
+              <div class="film-tooltip">
+                <div>
+                  <img
+                    src="./images/smiley.png"
+                    alt="photo"
+                    width="18"
+                    height="18"
+                  /><strong>Author:</strong> Slavat1
+                </div>
+                <div>
+                  <img
+                    src="./images/smiley.png"
+                    alt="photo"
+                    width="18"
+                    height="18"
+                  /><strong>Author:</strong> Slavat2
+                </div>
+                <div>
+                  <img
+                    src="./images/smiley.png"
+                    alt="photo"
+                    width="18"
+                    height="18"
+                  /><strong>Author:</strong> Slavat3
+                </div>
+                <div>
+                  <img
+                    src="./images/smiley.png"
+                    alt="photo"
+                    width="18"
+                    height="18"
+                  /><strong>Author:</strong> Slavat4
+                </div>
+                <div>
+                  <img
+                    src="./images/smiley.png"
+                    alt="photo"
+                    width="18"
+                    height="18"
+                  /><strong>Author:</strong> Slavat5
+                </div>
+                <div>
+                  <img
+                    src="./images/smiley.png"
+                    alt="photo"
+                    width="18"
+                    height="18"
+                  /><strong>Author:</strong> Slavat6
+                </div>
+              </div>
+              GoIT Students</a
+            ></span
           >
         </h4>
         <a class="swipe-up" title="top"></a>
@@ -110,18 +178,25 @@
     <div class="backdrop is-hidden js-backdrop" data-modal id="modal">
       <!-- start -->
 
-        <header class="header">
+      <!-- header library -->
+      <header class="header">
+        <div class="container">
           <div class="header-nav">
             <a
               href="./index.html"
               class="header-nav_logo js-logo-button"
               id="nav-logo"
             >
-              <img src="./images/film.png" alt="site logo" width="24" height="24" />
-    
+              <img
+                src="./images/film.png"
+                alt="site logo"
+                width="24"
+                height="24"
+              />
+
               <h1 class="header-nav_h1">Filmoteka</h1>
             </a>
-    
+
             <!-- header-nav_list -->
             <ul class="header-nav_list">
               <li class="header-nav_list-item">
@@ -143,34 +218,45 @@
               </li>
             </ul>
           </div>
-    
+
           <div class="library-navigation is-hidden">
             <button type="button" class="watched-show-btn is-hidden orange">
               Watched
             </button>
-            <button type="button" class="queue-show-btn is-hidden">Queue</button>
+            <button type="button" class="queue-show-btn is-hidden">
+              Queue
+            </button>
           </div>
-        </header>
-
-        <div class="modal">
-          <ul class="backdrop-content"></ul>
         </div>
+      </header>
 
-        <footer class="footer">
-          <!-- class footer-wrapper -->
-          <div class="footer-box container">
-            <!-- class footer-title -->
-            <h4 class="footer-copyright">
-              <span>© 2020 | All Rights Reserved |</span>
-              <span
-                >Developed with
-                <img src="./images/heart.png" alt="heart" width="14" height="14" />
-                by <a href="#">GoIT Students</a></span
-              >
-            </h4>
-            <a class="swipe-up" title="top"></a>
-          </div>
-        </footer>
+      <div class="modal">
+        <ul class="backdrop-content"></ul>
+      </div>
+
+      <!-- footer library -->
+      <footer class="footer">
+        <div class="footer-box container">
+          <h4 class="footer-copyright">
+            <span>© 2020 | All Rights Reserved |</span>
+            <span
+              >Developed with
+              <img
+                src="./images/heart.png"
+                alt="heart"
+                width="14"
+                height="14"
+              />
+              by
+              <a href="#" class="film-tooltip-container">
+                <div class="film-tooltip">Tooltip</div>
+                GoIT Students</a
+              ></span
+            >
+          </h4>
+          <a class="swipe-up" title="top"></a>
+        </div>
+      </footer>
 
       <!-- end -->
     </div>

@@ -12,11 +12,11 @@ export default class MovieApiService {
 
     return fetch(url)
       .then(response => {
-        console.log(response);
+        // console.log(response);
         return response.json();
       })
       .then(({ results }) => {
-        console.log({ results });
+        // console.log({ results });
         this.changePage();
         return results;
       });

@@ -1,4 +1,6 @@
+'use strict';
 import refs from './refs';
+import cards from '../templates/cardsLibrary.hbs';
 const libraryBtnRef = document.querySelector('.js-my-library-button');
 const watchedBtnRef = document.querySelector('.watched-show-btn');
 const queueBtnRef = document.querySelector('.queue-show-btn');
@@ -41,3 +43,57 @@ watchedBtnRef.addEventListener('click', () => {
 
 // logo
 refs.logoBtn.addEventListener('click', mainPage);
+
+///library-watched
+
+libraryBtnRef.addEventListener('click', event => {
+  refs.gallery.innerHTML = '';
+  const localStr = localStorage.getItem('filmsWatched');
+  const parse = JSON.parse(localStr);
+
+  for (let item of parse) {
+    fetch(
+      `https://api.themoviedb.org/3/movie/${item}?api_key=c2406e33bae3c04a8fdebb618c81ede7`,
+    )
+      .then(response => response.json())
+      .then(movie => {
+        const markup = cards(movie);
+        refs.gallery.insertAdjacentHTML('beforeend', markup);
+      });
+  }
+});
+watchedBtnRef.addEventListener('click', event => {
+  refs.gallery.innerHTML = '';
+  const localStr = localStorage.getItem('filmsWatched');
+  const parse = JSON.parse(localStr);
+
+  for (let item of parse) {
+    fetch(
+      `https://api.themoviedb.org/3/movie/${item}?api_key=c2406e33bae3c04a8fdebb618c81ede7`,
+    )
+      .then(response => response.json())
+      .then(movie => {
+        const markup = cards(movie);
+        refs.gallery.insertAdjacentHTML('beforeend', markup);
+      });
+  }
+});
+
+////library queue
+
+queueBtnRef.addEventListener('click', event => {
+  refs.gallery.innerHTML = '';
+  const localStr = localStorage.getItem('filmsQueue');
+  const parse = JSON.parse(localStr);
+
+  for (let item of parse) {
+    fetch(
+      `https://api.themoviedb.org/3/movie/${item}?api_key=c2406e33bae3c04a8fdebb618c81ede7`,
+    )
+      .then(response => response.json())
+      .then(movie => {
+        const markup = cards(movie);
+        refs.gallery.insertAdjacentHTML('beforeend', markup);
+      });
+  }
+});

@@ -1,37 +1,40 @@
 import refs from './refs';
 import notifications from './notifications.js';
+import addPaginationMarkup from './pagenationMarkup.js';
 import updateMarcup from './updateMarkupGallery.js';
 import LoadMoreBtn from './loadMoreBtn.js';
 import MovieApiService from './apiService.js';
 
-const loadMoreBtn = new LoadMoreBtn({
-  selector: '.js-load_more', // Создаю экземпляр кнопки загрузить еще
-  hidden: true,
-});
+// const loadMoreBtn = new LoadMoreBtn({
+//   selector: '.js-load_more', // Создаю экземпляр кнопки загрузить еще
+//   hidden: true,
+// });
 
 const movieApiService = new MovieApiService(); //Создаю экземпляр класса поиска фильмов
 refs.submitBtn.addEventListener('submit', fetchMoviesByQuery);
 refs.homeBtn.addEventListener('click', sendToHomePage); // слушатель на кнопке НОМЕ- отправляет на основную(первую) стр.
 refs.logoBtn.addEventListener('click', sendToHomePage); // слушатель на кнопке Filmoteka ^ делает то же самое
-loadMoreBtn.refs.button.addEventListener('click', uploadMovies);
+// loadMoreBtn.refs.button.addEventListener('click', uploadMovies);
 
 fetchPopMovies(); //Запрос и отрисовка главной страницы при  первой загрузке
-loadMoreBtn.show(); // показывает кнопку "загрузить еще"
+// addPaginationMarkup(); //Запрос и отрисовка главной страницы при  первой загрузке
+// loadMoreBtn.show(); // показывает кнопку "загрузить еще"
 
 // ф-ция запроса популярных фильмов и отрисовки результата запроса
 
 function fetchPopMovies(event) {
   // event.preventDefault();
-  loadMoreBtn.enable();
+  // loadMoreBtn.enable();
   movieApiService
     .createPopMovieListWithGenres()
     .then(results => {
+      console.log(results);
       notifications.removeNotifications();
       updateMarcup(results);
     })
     .catch(error => {
       notifications.errorRequest();
-      loadMoreBtn.hide();
+      // loadMoreBtn.hide();
     });
 }
 ///////////// ф-ция запроса  по ключевому слову и отрисовки результата запроса
@@ -40,7 +43,7 @@ function fetchMoviesByQuery(event) {
   movieApiService.query = event.target.elements.search.value;
 
   clearGallery();
-  loadMoreBtn.enable();
+  // loadMoreBtn.enable();
   movieApiService
     .createQueryMovieListWithGenres()
     .then(results => {
@@ -52,7 +55,7 @@ function fetchMoviesByQuery(event) {
     })
     .catch(error => {
       notifications.errorRequest();
-      loadMoreBtn.hide();
+      // loadMoreBtn.hide();
     });
 }
 
@@ -72,12 +75,12 @@ function sendToHomePage(event) {
   fetchPopMovies();
 }
 
-////Попытка привязать подгрузку разных страниц под одну кнопку
+////Попытка привязать подгрузку разных страниц под одну кнопку удалась!
 
 function uploadMovies(event) {
   if (refs.inputForm.value != '') {
     movieApiService.query = refs.inputForm.value;
-    loadMoreBtn.enable();
+    // loadMoreBtn.enable();
     movieApiService
       .createQueryMovieListWithGenres()
       .then(results => {
@@ -88,7 +91,7 @@ function uploadMovies(event) {
       })
       .catch(error => {
         notifications.errorRequest;
-        loadMoreBtn.hide();
+        // loadMoreBtn.hide();
       });
   } else if (!refs.inputForm.value) {
     fetchPopMovies();

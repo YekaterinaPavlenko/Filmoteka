@@ -15,6 +15,7 @@ const refs = {
   modalBox: document.querySelector('[data-modal]'),
   header: document.querySelector('.header'),
   paginationBox: document.querySelector('.js-pagination-box'),
+  pagingList: document.querySelector('.js-pagination-box_pages'),
   footer: document.querySelector('.footer'),
   main: document.querySelector('main'),
 };

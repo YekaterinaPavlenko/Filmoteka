@@ -44,13 +44,14 @@
   font-weight: 500;
   font-size: 12px;
   line-height: 1.33;
-  margin-right: 20px;
+  margin: auto;
+  // margin-right: 20px;
   margin-bottom: 20px;
   //justify-content: space-between;
   @media screen and (min-width: 768px) {
     width: calc((100% - 30px) / 2);
-    margin-bottom: 30px;
-    margin-right: 30px;
+    // margin-bottom: 30px;
+    // margin-right: 30px;
   }
   @media screen and (min-width: 1024px) {
     width: calc((100% - 30px * 2) / 3);
@@ -58,15 +59,15 @@
 }
 .gallery-item:not(:nth-last-child(2n)) {
   @media screen and (min-width: 768px) {
-    margin-right: 0px;
+    // margin-right: 0px;
   }
   @media screen and (min-width: 1024px) {
-    margin-right: 30px;
+    // margin-right: 30px;
   }
 }
 .gallery-item:nth-last-child(3n) {
   @media screen and (min-width: 1024px) {
-    margin-right: 0px;
+    // margin-right: 0px;
   }
 }
 

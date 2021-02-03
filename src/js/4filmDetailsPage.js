@@ -86,7 +86,6 @@ function appendMarkup(movie) {
     }
     let currentIdFilm = id;
     const index = filmsWatched.indexOf(currentIdFilm);
-    // let filmId = filmsWatched.find(el => el === currentIdFilm);
     if (index > -1) {
       filmsWatched.splice(index, 1);
     } else filmsWatched.push(id);
@@ -97,13 +96,11 @@ function appendMarkup(movie) {
   function toggleToQueue() {
     let filmsQueue = [];
     let localStorageData = localStorage.getItem('filmsQueue');
-    // console.log(localStorage.getItem('filmsQueue'));
     if (localStorageData) {
       filmsQueue = [...JSON.parse(localStorageData)];
     }
     let currentIdFilm = id;
     const index = filmsQueue.indexOf(currentIdFilm);
-    // let filmId = filmsQueue.find(el => el === currentIdFilm);
     if (index > -1) {
       filmsQueue.splice(index, 1);
     } else filmsQueue.push(id);

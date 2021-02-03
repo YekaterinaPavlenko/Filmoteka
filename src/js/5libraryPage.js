@@ -45,7 +45,7 @@ refs.queueBtnRef.addEventListener('click', event => {
   cleanGallery();
   const localStr = localStorage.getItem('filmsQueue');
   const parse = JSON.parse(localStr);
-  if (localStr === null) {
+  if (localStr === null || parse.length === 0) {
     refs.gallery.classList.add('gallery-bgr');
     refs.gallery.insertAdjacentHTML('beforeend', addText());
   } else refs.gallery.classList.remove('gallery-bgr');
@@ -72,7 +72,7 @@ function showWatched() {
   cleanGallery();
   const localStr = localStorage.getItem('filmsWatched');
   const parse = JSON.parse(localStr);
-  if (localStr === null) {
+  if (localStr === null || parse.length === 0) {
     refs.gallery.classList.add('gallery-bgr');
     refs.gallery.insertAdjacentHTML('beforeend', addText());
   } else refs.gallery.classList.remove('gallery-bgr');

@@ -13,12 +13,11 @@ export default class MovieApiService {
     console.log(this.page);
     return fetch(url)
       .then(response => {
-        // console.log(response);
+        console.log(response);
         return response.json();
       })
       .then(({ results }) => {
-        // console.log({ results });
-        // this.changePage();
+        console.log({ results });
         return results;
       });
   }
@@ -32,7 +31,6 @@ export default class MovieApiService {
         return response.json();
       })
       .then(({ results }) => {
-        // this.changePage();
         return results;
       });
   }
@@ -50,18 +48,10 @@ export default class MovieApiService {
       });
   }
 
-  changePage() {
-    this.page += 1;
-  }
-
   resetPage() {
     this.page = 1;
   }
-  undoPage() {
-    if (this.page > 1) {
-      this.page -= 1;
-    }
-  }
+
   get query() {
     return this.searchQuery;
   }

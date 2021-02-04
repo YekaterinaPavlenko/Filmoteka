@@ -2,7 +2,6 @@ import refs from './refs';
 import notifications from './notifications.js';
 import updateMarcup from './updateMarkupGallery.js';
 import MovieApiService from './apiService.js';
-import spinner from './spinner.js';
 
 const movieApiService = new MovieApiService(); //Создаю экземпляр класса поиска фильмов
 refs.submitBtn.addEventListener('submit', fetchMoviesByQuery);

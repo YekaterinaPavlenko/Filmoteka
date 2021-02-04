@@ -109,13 +109,3 @@ function uploadMovies() {
     fetchPopMovies();
   }
 }
-
-function backOnePage(event) {
-  if (event.target.textContent > 1) {
-    event.preventDefault();
-    currentNumberOfPageBtn = +currentNumberOfPageBtn - 1;
-    setNumberOfPageBtn(event);
-    setCurrentColor(event);
-  }
-  return;
-}

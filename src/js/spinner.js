@@ -1,13 +1,15 @@
-const spinner = {
-  spinnerRef: document.getElementById([fountainTextG]),
+import refs from './refs';
+//window.onload = function () {
+//spinnerRef = document.getElementById('load').classList('is-hidden');
+//};
 
+const spinner = {
   show() {
-    this.spinnerRef.style.display = 'inline-block';
+    refs.spinnerRef.classList.remove('is-hidden');
   },
   hide() {
-    this.spinnerRef.style.display = 'none';
+    refs.spinnerRef.classList.add('is-hidden');
   },
 };
-
+spinner.hide();
 //spinner.show();
-//spiner.hide();

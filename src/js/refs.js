@@ -22,5 +22,6 @@ const refs = {
   watchedBtnRef: document.querySelector('.watched-show-btn'),
   queueBtnRef: document.querySelector('.queue-show-btn'),
   headerRef: document.querySelector('.header'),
+  spinnerRef: document.querySelector('#load'),
 };
 export default refs;

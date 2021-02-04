@@ -1,14 +1,14 @@
 import refs from './refs.js';
-import MovieApiService from './apiService.js';
+// import MovieApiService from './apiService.js';
 import addPaginationMarkup from './pagenationMarkup.js';
+// import updateMarkupByPages from './homePage.js';
 
-const movieApiService = new MovieApiService();
+// const movieApiService = new MovieApiService();
 
 addPaginationMarkup();
 const pagingItems = document.querySelectorAll('.js-page-number');
 const backPageBtn = document.querySelector('.js-move-left');
 const forwardPageBtn = document.querySelector('.js-move-right');
-const firstBtn = document.getElementById('pag1');
 const secondBtn = document.getElementById('pag2');
 const thirdBtn = document.getElementById('pag3');
 const fourthBtn = document.getElementById('pag4');
@@ -16,29 +16,19 @@ const fifthBtn = document.getElementById('pag5');
 const sixthBtn = document.getElementById('pag6');
 const seventhBtn = document.getElementById('pag7');
 const eightBtn = document.getElementById('pag8');
-const ninthBtn = document.getElementById('pag9');
 
 refs.pagingList.addEventListener('click', setNumberOfPageBtn);
-// refs.pagingList.addEventListener('click', updateMarkupByPages);
-// refs.pagingList.addEventListener('click', setNumberOfPageBtn);
-// refs.pagingList.addEventListener('click', updateMarkupByPages);
+refs.pagingList.addEventListener('click', setCurrentColor);
+backPageBtn.addEventListener('click', backOnePage);
+// forwardPageBtn.addEventListener('click', forwardOnePage);
 
 const maxPages = 1000;
-let currentNumberOfPageBtn;
+let currentNumberOfPageBtn = 1;
 function setNumberOfPageBtn(event) {
   event.preventDefault();
   if (event.target.textContent <= 5) {
-    // console.log(firstBtn);
-    // refs.pagingList.innerHTML = '';
     currentNumberOfPageBtn = event.target.textContent;
-    movieApiService.page = currentNumberOfPageBtn;
-    console.log(currentNumberOfPageBtn);
-    for (let i = 1; i < pagingItems.length - 1; i += 1) {
-      // console.log(pagingItems[i].textContent);
-      // refs.pagingList.innerHTML = '';
-      // addPaginationMarkup();
-      pagingItems[i].textContent = '';
-    }
+    removeTextContentBtn();
     secondBtn.textContent = 2;
     thirdBtn.textContent = 3;
     fourthBtn.textContent = 4;
@@ -51,18 +41,8 @@ function setNumberOfPageBtn(event) {
     event.target.textContent > 5 &&
     event.target.textContent < maxPages - 4
   ) {
-    // console.log(pagingItems);
-    // console.log(pagingItems.length);
     currentNumberOfPageBtn = event.target.textContent;
-    movieApiService.page = currentNumberOfPageBtn;
-    console.log(currentNumberOfPageBtn);
-    for (let i = 1; i < pagingItems.length - 1; i += 1) {
-      // console.log(pagingItems[i].textContent);
-      // refs.pagingList.innerHTML = '';
-      pagingItems[i].textContent = '';
-    }
-    console.log(thirdBtn);
-    // firstBtn.textContent = 1;
+    removeTextContentBtn();
     secondBtn.textContent = '';
     secondBtn.classList.add('three-dots');
     thirdBtn.textContent = +currentNumberOfPageBtn - 2;
@@ -71,21 +51,9 @@ function setNumberOfPageBtn(event) {
     sixthBtn.textContent = +currentNumberOfPageBtn + 1;
     seventhBtn.textContent = +currentNumberOfPageBtn + 2;
     eightBtn.classList.add('three-dots');
-    // firstBtn.textContent = 1;
-    // secondBtn.textContent = '';
-    // secondBtn.classList.add('three-dots');
-    // thirdBtn.textContent = +event.target.textContent - 2;
-    // fourthBtn.textContent = +event.target.textContent - 1;
-    // fifthBtn.textContent = +event.target.textContent;
-    // sixthBtn.textContent = +event.target.textContent + 1;
-    // seventhBtn.textContent = +event.target.textContent + 2;
   } else if (event.target.textContent >= maxPages - 4) {
     currentNumberOfPageBtn = event.target.textContent;
-    movieApiService.page = currentNumberOfPageBtn;
-    console.log(currentNumberOfPageBtn);
-    for (let i = 1; i < pagingItems.length - 1; i += 1) {
-      pagingItems[i].textContent = '';
-    }
+    removeTextContentBtn();
     secondBtn.classList.add('three-dots');
     thirdBtn.textContent = maxPages - 6;
     fourthBtn.textContent = maxPages - 5;
@@ -96,18 +64,38 @@ function setNumberOfPageBtn(event) {
     eightBtn.textContent = maxPages - 1;
   }
 }
-// function updateMarkupByPages(event) {
-//   event.preventDefault();
-//   //   console.log(event.currentTarget);
-//   //   console.log(event.target.classList);
-//   // console.dir(event.currentTarget.children);
-//   if (event.target.classList.value.includes('js-page-number')) {
-//     movieApiService.page = +event.target.textContent;
-//     // console.log(event.target.classList.value);
-//     // console.log(event.currentTarget.children);
 
-//     // pagingItems.classList.value.remove('js-current-page');
-//     event.target.classList.add('js-current-page');
-//     // console.log(movieApiService.page);
-//   }
-// }
+function removeTextContentBtn() {
+  for (let i = 1; i < pagingItems.length - 1; i += 1) {
+    pagingItems[i].textContent = '';
+  }
+}
+
+function setCurrentColor(event) {
+  event.preventDefault();
+  if (
+    event.target.textContent <= 5 ||
+    event.target.textContent >= maxPages - 4
+  ) {
+    for (let i = 0; i < pagingItems.length; i += 1) {
+      pagingItems[i].classList.remove('js-current-number-page_Btn');
+    }
+    event.target.classList.add('js-current-number-page_Btn');
+  }
+  if (event.target.textContent > 5 && event.target.textContent < maxPages - 4) {
+    for (let i = 0; i < pagingItems.length; i += 1) {
+      pagingItems[i].classList.remove('js-current-number-page_Btn');
+    }
+    fifthBtn.classList.add('js-current-number-page_Btn');
+  }
+}
+
+function backOnePage(event) {
+  if (event.target.textContent > 1) {
+    event.preventDefault();
+    currentNumberOfPageBtn = +event.target.textContent - 1;
+    setNumberOfPageBtn(event);
+    setCurrentColor(event);
+  }
+  return;
+}

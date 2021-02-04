@@ -10,14 +10,16 @@ export default class MovieApiService {
   //Поиск по запросу популярных фильмов.Вынесла в отдельную ф-цию, чтоб не запутаться в зенах.
   fetchPopularMovies() {
     const url = `${this.baseUrl}/trending/movie/day?api_key=${this.apiKey}&language=en-US&page=${this.page}`;
+
+    console.log(this.page);
+
     return fetch(url)
       .then(response => {
-        // console.log(response);
+        console.log(response);
         return response.json();
       })
       .then(({ results }) => {
-        // console.log({ results });
-        this.changePage();
+        console.log({ results });
         return results;
       });
   }
@@ -31,7 +33,6 @@ export default class MovieApiService {
         return response.json();
       })
       .then(({ results }) => {
-        this.changePage();
         return results;
       })
       .finally(() => {
@@ -51,18 +52,11 @@ export default class MovieApiService {
         return genres;
       });
   }
-  changePage() {
-    this.page += 1;
-  }
 
   resetPage() {
     this.page = 1;
   }
-  undoPage() {
-    if (this.page > 1) {
-      this.page -= 1;
-    }
-  }
+
   get query() {
     return this.searchQuery;
   }

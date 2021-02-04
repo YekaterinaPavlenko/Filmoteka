@@ -60,15 +60,23 @@ function sendToHomePage(event) {
   movieApiService.resetPage();
   notifications.removeNotifications();
   fetchPopMovies();
+
+  // логика убирания кнопок галереи
+  refs.searchForm.classList.remove('is-hidden');
+  refs.watchedBtnRef.classList.add('is-hidden');
+  refs.queueBtnRef.classList.add('is-hidden');
+  refs.headerRef.classList.remove('bcg-libr');
+  refs.libraryBtnRef.classList.remove('current');
+  refs.homeBtn.classList.add('current');
+  refs.gallery.classList.remove('gallery-bgr');
 }
 let currentNumberOfPageBtn = 1;
 ////Попытка привязать подгрузку разных страниц под номера страниц удалась!
-export default function updateMarkupByPages(event) {
+function updateMarkupByPages(event) {
   event.preventDefault();
   // let currentNumberOfPageBtn = 1;
   currentNumberOfPageBtn = event.target.textContent;
   movieApiService.page = currentNumberOfPageBtn;
-  console.log(movieApiService.page);
   uploadMovies();
 }
 
@@ -109,3 +117,5 @@ function uploadMovies() {
     fetchPopMovies();
   }
 }
+
+export { sendToHomePage, updateMarkupByPages, clearGallery };

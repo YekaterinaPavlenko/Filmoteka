@@ -1,6 +1,6 @@
-// // li {
-// //   list-style: none;
-// // }
+// .backdrop {
+//   top: 230px;
+// }
 
 ul {
   padding-inline-start: 0px;
@@ -190,6 +190,7 @@ ul {
   text-align: center;
   text-transform: uppercase;
   transition: all 250ms linear;
+  cursor: pointer;
 
   &:hover {
     border: 1px solid $dark-color;
@@ -216,18 +217,19 @@ ul {
   width: 100%;
   margin-left: auto;
   margin-right: auto;
-  position: fixed;
-  top: 0px;
+  // position: fixed;
+  top: 230px;
   bottom: 0px;
   background-color: rgba(0, 0, 0, 0.2);
   pointer-events: initial;
   z-index: 100;
   opacity: 1;
   transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  overflow: scroll;
+  overflow: hidden;
 }
 
 .backdrop.is-hidden {
+  // display: none;
   visibility: hidden;
   pointer-events: none;
   opacity: 0;
@@ -236,4 +238,14 @@ ul {
 
 .backdrop.is-hidden .modal {
   transform: translate(-50%, -50%) scale(1.1);
+}
+
+.visabilyty-off {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.visabilyty-on {
+  visibility: visible;
+  opacity: 1;
 }

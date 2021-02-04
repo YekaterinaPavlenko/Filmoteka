@@ -15,6 +15,7 @@ refs.submitBtn.addEventListener('submit', fetchMoviesByQuery);
 refs.homeBtn.addEventListener('click', sendToHomePage); // слушатель на кнопке НОМЕ- отправляет на основную(первую) стр.
 refs.logoBtn.addEventListener('click', sendToHomePage); // слушатель на кнопке Filmoteka ^ делает то же самое
 // loadMoreBtn.refs.button.addEventListener('click', uploadMovies);
+refs.pagingList.addEventListener('click', updateMarkupByPages);
 
 fetchPopMovies(); //Запрос и отрисовка главной страницы при  первой загрузке
 // addPaginationMarkup(); //Запрос и отрисовка главной страницы при  первой загрузке
@@ -28,7 +29,7 @@ function fetchPopMovies(event) {
   movieApiService
     .createPopMovieListWithGenres()
     .then(results => {
-      console.log(results);
+      // console.log(results);
       notifications.removeNotifications();
       updateMarcup(results);
     })
@@ -76,6 +77,14 @@ function sendToHomePage(event) {
 }
 
 ////Попытка привязать подгрузку разных страниц под одну кнопку удалась!
+export default function updateMarkupByPages(event) {
+  event.preventDefault();
+  let currentNumberOfPageBtn = 1;
+  currentNumberOfPageBtn = event.target.textContent;
+  movieApiService.page = currentNumberOfPageBtn;
+  console.log(movieApiService.page);
+  uploadMovies(event);
+}
 
 function uploadMovies(event) {
   if (refs.inputForm.value != '') {

@@ -14,4 +14,4 @@ import './js/4filmDetailsPage.js';
 import './js/5libraryPage';
 import './js/ScrollUp';
 import './js/tooltip';
-import './js/spinner.js';
+// import './js/spinner.js';

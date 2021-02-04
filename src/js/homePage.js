@@ -2,6 +2,7 @@ import refs from './refs';
 import notifications from './notifications.js';
 import updateMarcup from './updateMarkupGallery.js';
 import MovieApiService from './apiService.js';
+import spinner from './spinner.js';
 
 const movieApiService = new MovieApiService(); //Создаю экземпляр класса поиска фильмов
 refs.submitBtn.addEventListener('submit', fetchMoviesByQuery);
@@ -61,15 +62,29 @@ function sendToHomePage(event) {
   notifications.removeNotifications();
   fetchPopMovies();
 }
-
+let currentNumberOfPageBtn = 1;
 ////Попытка привязать подгрузку разных страниц под номера страниц удалась!
 export default function updateMarkupByPages(event) {
   event.preventDefault();
-  let currentNumberOfPageBtn = 1;
+  // let currentNumberOfPageBtn = 1;
   currentNumberOfPageBtn = event.target.textContent;
   movieApiService.page = currentNumberOfPageBtn;
   console.log(movieApiService.page);
   uploadMovies();
+}
+
+function backOnePage(event) {
+  event.preventDefault();
+  if (event.target.textContent > 1) {
+    event.preventDefault();
+    currentNumberOfPageBtn = +event.target.textContent - 1;
+    // setNumberOfPageBtn(event);
+    // setCurrentColor(event);
+    movieApiService.page = currentNumberOfPageBtn;
+    console.log(movieApiService.page);
+    uploadMovies();
+  }
+  return;
 }
 
 function uploadMovies() {

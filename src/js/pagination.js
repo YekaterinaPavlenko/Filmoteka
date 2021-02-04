@@ -29,6 +29,7 @@ function setNumberOfPageBtn(event) {
   if (event.target.textContent <= 5) {
     currentNumberOfPageBtn = event.target.textContent;
     removeTextContentBtn();
+    secondBtn.classList.remove('three-dots');
     secondBtn.textContent = 2;
     thirdBtn.textContent = 3;
     fourthBtn.textContent = 4;
@@ -91,11 +92,11 @@ function setCurrentColor(event) {
 }
 
 // function backOnePage(event) {
-//   if (event.target.textContent > 1) {
-//     event.preventDefault();
+//   event.preventDefault();
+//   if (currentNumberOfPageBtn >= 2) {
 //     currentNumberOfPageBtn = +event.target.textContent - 1;
-//     setNumberOfPageBtn(event);
-//     setCurrentColor(event);
+//     // setNumberOfPageBtn(event);
+//     // setCurrentColor(event);
 //   }
 //   return;
 // }

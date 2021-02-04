@@ -80,19 +80,18 @@ function updateMarkupByPages(event) {
   uploadMovies();
 }
 
-function backOnePage(event) {
-  event.preventDefault();
-  if (event.target.textContent > 1) {
-    event.preventDefault();
-    currentNumberOfPageBtn = +event.target.textContent - 1;
-    // setNumberOfPageBtn(event);
-    // setCurrentColor(event);
-    movieApiService.page = currentNumberOfPageBtn;
-    console.log(movieApiService.page);
-    uploadMovies();
-  }
-  return;
-}
+// function backOnePage(event) {
+//   event.preventDefault();
+//   if (event.target.textContent > 1) {
+//     currentNumberOfPageBtn = +event.target.textContent - 1;
+//     // setNumberOfPageBtn(event);
+//     // setCurrentColor(event);
+//     movieApiService.page = currentNumberOfPageBtn;
+//     console.log(movieApiService.page);
+//     uploadMovies();
+//   }
+//   return;
+// }
 
 function uploadMovies() {
   // event.preventDefault();

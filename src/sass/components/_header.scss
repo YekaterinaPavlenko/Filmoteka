@@ -39,7 +39,6 @@
 
   &_h1 {
     display: none;
-    // font-family: 'Roboto';
     font-weight: 500;
     font-size: 30px;
     line-height: 1.17;
@@ -59,10 +58,7 @@
   padding: 10px 0px;
   margin-top: 58px;
   // margin-right: 20px;
-
   align-items: center;
-
-  // font-family: 'Roboto', sans-serif;
   font-weight: 500;
   font-size: 12px;
   line-height: 1.17;
@@ -137,7 +133,6 @@
 
 .search-film-form .input {
   background: #eee;
-  font: 13px Tahoma, Arial, sans-serif;
   color: #555;
   outline: none;
   background: none;
@@ -161,7 +156,6 @@
   }
 
   @media (min-width: 768px) {
-    font-size: 17px;
     width: 100%;
   }
 }
@@ -215,7 +209,6 @@
   height: 44px;
   border-radius: 5px;
   margin-left: 15px;
-  font-family: 'Roboto', sans-serif;
   font-weight: 500;
   font-size: 12px;
   line-height: 1.333;

@@ -28,15 +28,10 @@ let currentNumberOfPageBtn;
 function setNumberOfPageBtn(event) {
   event.preventDefault();
   if (event.target.textContent <= 5) {
-    // console.log(firstBtn);
-    // refs.pagingList.innerHTML = '';
     currentNumberOfPageBtn = event.target.textContent;
     movieApiService.page = currentNumberOfPageBtn;
     console.log(currentNumberOfPageBtn);
     for (let i = 1; i < pagingItems.length - 1; i += 1) {
-      // console.log(pagingItems[i].textContent);
-      // refs.pagingList.innerHTML = '';
-      // addPaginationMarkup();
       pagingItems[i].textContent = '';
     }
     secondBtn.textContent = 2;
@@ -57,12 +52,10 @@ function setNumberOfPageBtn(event) {
     movieApiService.page = currentNumberOfPageBtn;
     console.log(currentNumberOfPageBtn);
     for (let i = 1; i < pagingItems.length - 1; i += 1) {
-      // console.log(pagingItems[i].textContent);
-      // refs.pagingList.innerHTML = '';
       pagingItems[i].textContent = '';
     }
     console.log(thirdBtn);
-    // firstBtn.textContent = 1;
+
     secondBtn.textContent = '';
     secondBtn.classList.add('three-dots');
     thirdBtn.textContent = +currentNumberOfPageBtn - 2;
@@ -71,14 +64,6 @@ function setNumberOfPageBtn(event) {
     sixthBtn.textContent = +currentNumberOfPageBtn + 1;
     seventhBtn.textContent = +currentNumberOfPageBtn + 2;
     eightBtn.classList.add('three-dots');
-    // firstBtn.textContent = 1;
-    // secondBtn.textContent = '';
-    // secondBtn.classList.add('three-dots');
-    // thirdBtn.textContent = +event.target.textContent - 2;
-    // fourthBtn.textContent = +event.target.textContent - 1;
-    // fifthBtn.textContent = +event.target.textContent;
-    // sixthBtn.textContent = +event.target.textContent + 1;
-    // seventhBtn.textContent = +event.target.textContent + 2;
   } else if (event.target.textContent >= maxPages - 4) {
     currentNumberOfPageBtn = event.target.textContent;
     movieApiService.page = currentNumberOfPageBtn;

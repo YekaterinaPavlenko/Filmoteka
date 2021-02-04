@@ -54,7 +54,7 @@
   background-image: url(../images/arrow-left.png);
   &:hover {
     background: #ff6b08;
-    background-image: url(../images/arrow-left.png);
+    background-image: url(../images/arrow-left-white.png);
     background-repeat: no-repeat;
     background-position: center;
   }
@@ -64,7 +64,7 @@
   background-image: url(../images/arrow-right.png);
   &:hover {
     background: #ff6b08;
-    background-image: url(../images/arrow-right.png);
+    background-image: url(../images/arrow-right-white.png);
     background-repeat: no-repeat;
     background-position: center;
   }
@@ -73,4 +73,9 @@
   background-image: url(../images/three-dots.png);
   background-repeat: no-repeat;
   background-position: center;
+  &:hover {
+    background-image: url(../images/three-dots-white.png);
+    background-repeat: no-repeat;
+    background-position: center;
+  }
 }

@@ -1,6 +1,7 @@
 import refs from './refs.js';
 import MovieApiService from './apiService.js';
 import addPaginationMarkup from './pagenationMarkup.js';
+import uploadMovies from './homePage.js';
 
 const movieApiService = new MovieApiService();
 
@@ -8,7 +9,7 @@ addPaginationMarkup();
 const pagingItems = document.querySelectorAll('.js-page-number');
 const backPageBtn = document.querySelector('.js-move-left');
 const forwardPageBtn = document.querySelector('.js-move-right');
-const firstBtn = document.getElementById('pag1');
+// const firstBtn = document.getElementById('pag1');
 const secondBtn = document.getElementById('pag2');
 const thirdBtn = document.getElementById('pag3');
 const fourthBtn = document.getElementById('pag4');
@@ -16,14 +17,14 @@ const fifthBtn = document.getElementById('pag5');
 const sixthBtn = document.getElementById('pag6');
 const seventhBtn = document.getElementById('pag7');
 const eightBtn = document.getElementById('pag8');
-const ninthBtn = document.getElementById('pag9');
+// const ninthBtn = document.getElementById('pag9');
 
 refs.pagingList.addEventListener('click', setNumberOfPageBtn);
 
 refs.pagingList.addEventListener('click', setCurrentColor);
 
 const maxPages = 1000;
-let currentNumberOfPageBtn;
+let currentNumberOfPageBtn = 1;
 function setNumberOfPageBtn(event) {
   event.preventDefault();
   if (event.target.textContent <= 5) {
@@ -43,7 +44,7 @@ function setNumberOfPageBtn(event) {
   ) {
     updateMarkupByPages(event);
     removeTextContentBtn();
-    console.log(thirdBtn);
+    // console.log(thirdBtn);
 
     secondBtn.textContent = '';
     secondBtn.classList.add('three-dots');
@@ -68,10 +69,11 @@ function setNumberOfPageBtn(event) {
 }
 function updateMarkupByPages(event) {
   event.preventDefault();
+
   currentNumberOfPageBtn = event.target.textContent;
   movieApiService.page = currentNumberOfPageBtn;
-  // console.log(currentNumberOfPageBtn);
   console.log(movieApiService.page);
+  uploadMovies(event);
 }
 function removeTextContentBtn() {
   for (let i = 1; i < pagingItems.length - 1; i += 1) {

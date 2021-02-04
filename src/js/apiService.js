@@ -8,8 +8,9 @@ export default class MovieApiService {
   }
   //Поиск по запросу популярных фильмов.Вынесла в отдельную ф-цию, чтоб не запутаться в зенах.
   fetchPopularMovies() {
-    const url = `${this.baseUrl}/trending/movie/day?api_key=${this.apiKey}&language=en-US&page=${this.page}`;
+    const url = `${this.baseUrl}/movie/popular?api_key=${this.apiKey}&language=en-US&page=${this.page}`;
 
+    console.log(this.page);
     return fetch(url)
       .then(response => {
         // console.log(response);
@@ -48,6 +49,7 @@ export default class MovieApiService {
         return genres;
       });
   }
+
   changePage() {
     this.page += 1;
   }

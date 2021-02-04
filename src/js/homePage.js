@@ -81,6 +81,7 @@ function uploadMovies(event) {
   if (refs.inputForm.value != '') {
     movieApiService.query = refs.inputForm.value;
     // loadMoreBtn.enable();
+    clearGallery();
     movieApiService
       .createQueryMovieListWithGenres()
       .then(results => {
@@ -94,6 +95,7 @@ function uploadMovies(event) {
         // loadMoreBtn.hide();
       });
   } else if (!refs.inputForm.value) {
+    clearGallery();
     fetchPopMovies();
   }
 }

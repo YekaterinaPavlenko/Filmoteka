@@ -1,3 +1,4 @@
+import refs from './refs';
 export default class MovieApiService {
   constructor() {
     this.inputValue = '';
@@ -20,15 +21,18 @@ export default class MovieApiService {
   }
 
   //Поиск по запросу фильмов по слову.Вынесла в отдельную ф-цию, чтоб не запутаться в зенах.
-
   fethcMovieByQuery() {
     const url = `${this.baseUrl}/search/movie?api_key=${this.apiKey}&query=${this.query}&page=${this.page}`;
+    spinner.show();
     return fetch(url)
       .then(response => {
         return response.json();
       })
       .then(({ results }) => {
         return results;
+      })
+      .finally(() => {
+        spinner.hide();
       });
   }
 
@@ -91,3 +95,15 @@ export default class MovieApiService {
     });
   }
 }
+
+//Spinner
+const spinner = {
+  show() {
+    refs.spinnerRef.classList.remove('is-hidden');
+  },
+  hide() {
+    setTimeout(() => {
+      refs.spinnerRef.classList.add('is-hidden');
+    }, 2000);
+  },
+};

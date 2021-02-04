@@ -19,7 +19,7 @@ const eightBtn = document.getElementById('pag8');
 
 refs.pagingList.addEventListener('click', setNumberOfPageBtn);
 refs.pagingList.addEventListener('click', setCurrentColor);
-backPageBtn.addEventListener('click', backOnePage);
+// backPageBtn.addEventListener('click', backOnePage);
 // forwardPageBtn.addEventListener('click', forwardOnePage);
 
 const maxPages = 1000;
@@ -90,12 +90,12 @@ function setCurrentColor(event) {
   }
 }
 
-function backOnePage(event) {
-  if (event.target.textContent > 1) {
-    event.preventDefault();
-    currentNumberOfPageBtn = +event.target.textContent - 1;
-    setNumberOfPageBtn(event);
-    setCurrentColor(event);
-  }
-  return;
-}
+// function backOnePage(event) {
+//   if (event.target.textContent > 1) {
+//     event.preventDefault();
+//     currentNumberOfPageBtn = +event.target.textContent - 1;
+//     setNumberOfPageBtn(event);
+//     setCurrentColor(event);
+//   }
+//   return;
+// }

@@ -19,18 +19,15 @@ const eightBtn = document.getElementById('pag8');
 const ninthBtn = document.getElementById('pag9');
 
 refs.pagingList.addEventListener('click', setNumberOfPageBtn);
-// refs.pagingList.addEventListener('click', updateMarkupByPages);
+
 // refs.pagingList.addEventListener('click', setNumberOfPageBtn);
-// refs.pagingList.addEventListener('click', updateMarkupByPages);
 
 const maxPages = 1000;
 let currentNumberOfPageBtn;
 function setNumberOfPageBtn(event) {
   event.preventDefault();
   if (event.target.textContent <= 5) {
-    currentNumberOfPageBtn = event.target.textContent;
-    movieApiService.page = currentNumberOfPageBtn;
-    console.log(currentNumberOfPageBtn);
+    updateMarkupByPages(event);
     for (let i = 1; i < pagingItems.length - 1; i += 1) {
       pagingItems[i].textContent = '';
     }
@@ -46,11 +43,7 @@ function setNumberOfPageBtn(event) {
     event.target.textContent > 5 &&
     event.target.textContent < maxPages - 4
   ) {
-    // console.log(pagingItems);
-    // console.log(pagingItems.length);
-    currentNumberOfPageBtn = event.target.textContent;
-    movieApiService.page = currentNumberOfPageBtn;
-    console.log(currentNumberOfPageBtn);
+    updateMarkupByPages(event);
     for (let i = 1; i < pagingItems.length - 1; i += 1) {
       pagingItems[i].textContent = '';
     }
@@ -65,9 +58,7 @@ function setNumberOfPageBtn(event) {
     seventhBtn.textContent = +currentNumberOfPageBtn + 2;
     eightBtn.classList.add('three-dots');
   } else if (event.target.textContent >= maxPages - 4) {
-    currentNumberOfPageBtn = event.target.textContent;
-    movieApiService.page = currentNumberOfPageBtn;
-    console.log(currentNumberOfPageBtn);
+    updateMarkupByPages(event);
     for (let i = 1; i < pagingItems.length - 1; i += 1) {
       pagingItems[i].textContent = '';
     }
@@ -81,18 +72,9 @@ function setNumberOfPageBtn(event) {
     eightBtn.textContent = maxPages - 1;
   }
 }
-// function updateMarkupByPages(event) {
-//   event.preventDefault();
-//   //   console.log(event.currentTarget);
-//   //   console.log(event.target.classList);
-//   // console.dir(event.currentTarget.children);
-//   if (event.target.classList.value.includes('js-page-number')) {
-//     movieApiService.page = +event.target.textContent;
-//     // console.log(event.target.classList.value);
-//     // console.log(event.currentTarget.children);
-
-//     // pagingItems.classList.value.remove('js-current-page');
-//     event.target.classList.add('js-current-page');
-//     // console.log(movieApiService.page);
-//   }
-// }
+function updateMarkupByPages(event) {
+  event.preventDefault();
+  currentNumberOfPageBtn = event.target.textContent;
+  movieApiService.page = currentNumberOfPageBtn;
+  console.log(currentNumberOfPageBtn);
+}

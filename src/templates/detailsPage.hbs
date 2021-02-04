@@ -1,9 +1,10 @@
-<li class="gallery-item">
+<li class="gallery-item modal-item">
     <div class="gallery-card">
-    <img src="https://image.tmdb.org/t/p/w300{{poster_path}}" alt="{{title}}" class="gallery-image">
+    <img src="https://image.tmdb.org/t/p/w300{{poster_path}}" alt="{{title}}" class="gallery-image modal-img">
     </div>
 </li>
-<li class="modal-description content-description">
+<li class="gallery-item modal-description content-description">
+    <div class="gallery-card">
     <h2 data-id="{{id}}">{{title}}</h2>
     <ul class="modal-list">
         <li>
@@ -35,5 +36,6 @@
       <li><button class="modal-btn js-btn watched-btn">add to Watched</button></li>
       <li><button class="modal-btn js-btn queue-btn">add to queue</button></li>
     </ul>
+    </div>
     </div>
 </li>

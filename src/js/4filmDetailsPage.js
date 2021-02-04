@@ -24,7 +24,8 @@ function openModal(event) {
   id = event.target.dataset.id;
   // console.log(id);
   refs.modalBox.classList.remove('is-hidden');
-  refs.header.classList.add('is-hidden');
+  // refs.header.classList.add('is-hidden');
+  refs.searchForm.classList.add('visabilyty-off');
   refs.footer.classList.add('is-hidden');
   refs.main.classList.add('is-hidden');
   fetchFilm(id);
@@ -37,7 +38,8 @@ function closeModal(e) {
   e.preventDefault();
   if (e.code == 'Escape' || e.target.classList.contains('js-backdrop')) {
     refs.modalBox.classList.add('is-hidden');
-    refs.header.classList.remove('is-hidden');
+    // refs.header.classList.remove('is-hidden');
+    refs.searchForm.classList.remove('visabilyty-off');
     refs.footer.classList.remove('is-hidden');
     refs.main.classList.remove('is-hidden');
     refs.modalContent.innerHTML = '';

@@ -10,14 +10,11 @@ export default class MovieApiService {
   fetchPopularMovies() {
     const url = `${this.baseUrl}/trending/movie/day?api_key=${this.apiKey}&language=en-US&page=${this.page}`;
 
-    console.log(this.page);
     return fetch(url)
       .then(response => {
-        console.log(response);
         return response.json();
       })
       .then(({ results }) => {
-        console.log({ results });
         return results;
       });
   }

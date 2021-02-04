@@ -1,7 +1,7 @@
 import refs from './refs.js';
 // import MovieApiService from './apiService.js';
 import addPaginationMarkup from './pagenationMarkup.js';
-// import updateMarkupByPages from './homePage.js';
+// import {updateMarkupByPages} from './homePage.js';
 
 // const movieApiService = new MovieApiService();
 

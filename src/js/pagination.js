@@ -20,7 +20,7 @@ const ninthBtn = document.getElementById('pag9');
 
 refs.pagingList.addEventListener('click', setNumberOfPageBtn);
 
-// refs.pagingList.addEventListener('click', setNumberOfPageBtn);
+refs.pagingList.addEventListener('click', setCurrentColor);
 
 const maxPages = 1000;
 let currentNumberOfPageBtn;
@@ -28,9 +28,7 @@ function setNumberOfPageBtn(event) {
   event.preventDefault();
   if (event.target.textContent <= 5) {
     updateMarkupByPages(event);
-    for (let i = 1; i < pagingItems.length - 1; i += 1) {
-      pagingItems[i].textContent = '';
-    }
+    removeTextContentBtn();
     secondBtn.textContent = 2;
     thirdBtn.textContent = 3;
     fourthBtn.textContent = 4;
@@ -44,9 +42,7 @@ function setNumberOfPageBtn(event) {
     event.target.textContent < maxPages - 4
   ) {
     updateMarkupByPages(event);
-    for (let i = 1; i < pagingItems.length - 1; i += 1) {
-      pagingItems[i].textContent = '';
-    }
+    removeTextContentBtn();
     console.log(thirdBtn);
 
     secondBtn.textContent = '';
@@ -59,9 +55,7 @@ function setNumberOfPageBtn(event) {
     eightBtn.classList.add('three-dots');
   } else if (event.target.textContent >= maxPages - 4) {
     updateMarkupByPages(event);
-    for (let i = 1; i < pagingItems.length - 1; i += 1) {
-      pagingItems[i].textContent = '';
-    }
+    removeTextContentBtn();
     secondBtn.classList.add('three-dots');
     thirdBtn.textContent = maxPages - 6;
     fourthBtn.textContent = maxPages - 5;
@@ -76,5 +70,30 @@ function updateMarkupByPages(event) {
   event.preventDefault();
   currentNumberOfPageBtn = event.target.textContent;
   movieApiService.page = currentNumberOfPageBtn;
-  console.log(currentNumberOfPageBtn);
+  // console.log(currentNumberOfPageBtn);
+  console.log(movieApiService.page);
+}
+function removeTextContentBtn() {
+  for (let i = 1; i < pagingItems.length - 1; i += 1) {
+    pagingItems[i].textContent = '';
+  }
+}
+function setCurrentColor(event) {
+  event.preventDefault();
+  if (
+    event.target.textContent <= 5 ||
+    event.target.textContent >= maxPages - 4
+  ) {
+    for (let i = 0; i < pagingItems.length; i += 1) {
+      pagingItems[i].classList.remove('js-current-number-page_Btn');
+    }
+    event.target.classList.add('js-current-number-page_Btn');
+  }
+  if (event.target.textContent > 5 && event.target.textContent < maxPages - 4) {
+    for (let i = 0; i < pagingItems.length; i += 1) {
+      pagingItems[i].classList.remove('js-current-number-page_Btn');
+    }
+
+    fifthBtn.classList.add('js-current-number-page_Btn');
+  }
 }

@@ -1,7 +1,7 @@
 import refs from './refs.js';
 import MovieApiService from './apiService.js';
 import addPaginationMarkup from './pagenationMarkup.js';
-import uploadMovies from './homePage.js';
+// import uploadMovies from './homePage.js';
 
 const movieApiService = new MovieApiService();
 

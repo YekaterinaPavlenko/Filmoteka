@@ -1,3 +1,4 @@
+import refs from './refs';
 export default class MovieApiService {
   constructor() {
     this.inputValue = '';
@@ -8,32 +9,34 @@ export default class MovieApiService {
   }
   //Поиск по запросу популярных фильмов.Вынесла в отдельную ф-цию, чтоб не запутаться в зенах.
   fetchPopularMovies() {
-    const url = `${this.baseUrl}/movie/popular?api_key=${this.apiKey}&language=en-US&page=${this.page}`;
+    const url = `${this.baseUrl}/trending/movie/day?api_key=${this.apiKey}&language=en-US&page=${this.page}`;
 
     console.log(this.page);
+
     return fetch(url)
       .then(response => {
-        // console.log(response);
+        console.log(response);
         return response.json();
       })
       .then(({ results }) => {
-        // console.log({ results });
-        this.changePage();
+        console.log({ results });
         return results;
       });
   }
 
   //Поиск по запросу фильмов по слову.Вынесла в отдельную ф-цию, чтоб не запутаться в зенах.
-
   fethcMovieByQuery() {
     const url = `${this.baseUrl}/search/movie?api_key=${this.apiKey}&query=${this.query}&page=${this.page}`;
+    spinner.show();
     return fetch(url)
       .then(response => {
         return response.json();
       })
       .then(({ results }) => {
-        this.changePage();
         return results;
+      })
+      .finally(() => {
+        spinner.hide();
       });
   }
 
@@ -50,18 +53,10 @@ export default class MovieApiService {
       });
   }
 
-  changePage() {
-    this.page += 1;
-  }
-
   resetPage() {
     this.page = 1;
   }
-  undoPage() {
-    if (this.page > 1) {
-      this.page -= 1;
-    }
-  }
+
   get query() {
     return this.searchQuery;
   }
@@ -104,3 +99,15 @@ export default class MovieApiService {
     });
   }
 }
+
+//Spinner
+const spinner = {
+  show() {
+    refs.spinnerRef.classList.remove('is-hidden');
+  },
+  hide() {
+    setTimeout(() => {
+      refs.spinnerRef.classList.add('is-hidden');
+    }, 2000);
+  },
+};

@@ -18,7 +18,7 @@ export default class MovieApiService {
       })
       .then(({ results }) => {
         // console.log({ results });
-        this.changePage();
+        // this.changePage();
         return results;
       });
   }
@@ -32,7 +32,7 @@ export default class MovieApiService {
         return response.json();
       })
       .then(({ results }) => {
-        this.changePage();
+        // this.changePage();
         return results;
       });
   }

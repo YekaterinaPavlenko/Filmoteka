@@ -1,7 +1,7 @@
 import refs from './refs.js';
 import MovieApiService from './apiService.js';
 import addPaginationMarkup from './pagenationMarkup.js';
-import uploadMovies from './homePage.js';
+import updateMarkupByPages from './homePage.js';
 
 const movieApiService = new MovieApiService();
 
@@ -23,12 +23,13 @@ refs.pagingList.addEventListener('click', setNumberOfPageBtn);
 
 refs.pagingList.addEventListener('click', setCurrentColor);
 
-const maxPages = 1000;
+const maxPages = 500;
 let currentNumberOfPageBtn = 1;
 function setNumberOfPageBtn(event) {
   event.preventDefault();
   if (event.target.textContent <= 5) {
-    updateMarkupByPages(event);
+    currentNumberOfPageBtn = event.target.textContent;
+    // updateMarkupByPages(event);
     removeTextContentBtn();
     secondBtn.textContent = 2;
     thirdBtn.textContent = 3;
@@ -42,7 +43,8 @@ function setNumberOfPageBtn(event) {
     event.target.textContent > 5 &&
     event.target.textContent < maxPages - 4
   ) {
-    updateMarkupByPages(event);
+    currentNumberOfPageBtn = event.target.textContent;
+    // updateMarkupByPages(event);
     removeTextContentBtn();
     // console.log(thirdBtn);
 
@@ -55,7 +57,8 @@ function setNumberOfPageBtn(event) {
     seventhBtn.textContent = +currentNumberOfPageBtn + 2;
     eightBtn.classList.add('three-dots');
   } else if (event.target.textContent >= maxPages - 4) {
-    updateMarkupByPages(event);
+    currentNumberOfPageBtn = event.target.textContent;
+    // updateMarkupByPages(event);
     removeTextContentBtn();
     secondBtn.classList.add('three-dots');
     thirdBtn.textContent = maxPages - 6;
@@ -67,14 +70,14 @@ function setNumberOfPageBtn(event) {
     eightBtn.textContent = maxPages - 1;
   }
 }
-function updateMarkupByPages(event) {
-  event.preventDefault();
+// function updateMarkupByPages(event) {
+//   event.preventDefault();
 
-  currentNumberOfPageBtn = event.target.textContent;
-  movieApiService.page = currentNumberOfPageBtn;
-  console.log(movieApiService.page);
-  uploadMovies(event);
-}
+//   currentNumberOfPageBtn = event.target.textContent;
+//   movieApiService.page = currentNumberOfPageBtn;
+//   console.log(movieApiService.page);
+//   uploadMovies(event);
+// }
 function removeTextContentBtn() {
   for (let i = 1; i < pagingItems.length - 1; i += 1) {
     pagingItems[i].textContent = '';

@@ -16,6 +16,7 @@ export default class MovieApiService {
         return response.json();
       })
       .then(({ results }) => {
+        console.log(this.page);
         return results;
       })
       .finally(() => {

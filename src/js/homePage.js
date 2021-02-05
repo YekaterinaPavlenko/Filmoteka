@@ -2,7 +2,6 @@ import refs from './refs';
 import notifications from './notifications.js';
 import updateMarcup from './updateMarkupGallery.js';
 import MovieApiService from './apiService.js';
-import addPaginationMarkup from './pagenationMarkup.js';
 
 const movieApiService = new MovieApiService(); //Создаю экземпляр класса поиска фильмов
 
@@ -12,7 +11,7 @@ refs.logoBtn.addEventListener('click', sendToHomePage); // слушатель н
 refs.pagingList.addEventListener('click', updateMarkupByPages);
 
 fetchPopMovies(); //Запрос и отрисовка главной страницы при  первой загрузке
-addPaginationMarkup();
+
 // ф-ция запроса популярных фильмов и отрисовки результата запроса
 
 function fetchPopMovies() {
@@ -100,11 +99,6 @@ function uploadMovies() {
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 let currentNumberOfPageBtn = 1;
 
-const forwardPageBtn = document.querySelector('.js-move-right');
-const backPageBtn = document.querySelector('.js-move-left');
-forwardPageBtn.addEventListener('click', forwardOnePage);
-backPageBtn.addEventListener('click', backOnePage);
-
 /////ф-ция  подгрузки фильмов постранично
 function updateMarkupByPages(event) {
   if (event.target.nodeName !== 'SPAN') {
@@ -138,9 +132,15 @@ function backOnePage(event) {
   const toNumbPage = Number(movieApiService.page);
   movieApiService.page = toNumbPage - 1;
   console.log(movieApiService.page);
-  console.log(typeof movieApiService.page);
+  // console.log(typeof movieApiService.page);
   uploadMovies();
 }
 
 /////////////////////////////////////////
-export { sendToHomePage, updateMarkupByPages, clearGallery };
+export {
+  sendToHomePage,
+  updateMarkupByPages,
+  clearGallery,
+  forwardOnePage,
+  backOnePage,
+};

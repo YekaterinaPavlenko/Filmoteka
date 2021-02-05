@@ -1,7 +1,7 @@
 import refs from './refs.js';
-import addPaginationMarkup from './pagenationMarkup.js';
+// import addPaginationMarkup from './pagenationMarkup.js';
 
-addPaginationMarkup();
+// addPaginationMarkup();
 const pagingItems = document.querySelectorAll('.js-page-number');
 const backPageBtn = document.querySelector('.js-move-left');
 const forwardPageBtn = document.querySelector('.js-move-right');
@@ -22,7 +22,7 @@ let currentNumberOfPageBtn = 1;
 function setNumberOfPageBtn(event) {
   event.preventDefault();
   if (event.target.textContent <= 5) {
-    currentNumberOfPageBtn = event.target.textContent;
+    currentNumberOfPageBtn = +event.target.textContent;
     removeTextContentBtn();
     secondBtn.classList.remove('three-dots');
     secondBtn.textContent = 2;
@@ -62,7 +62,6 @@ function setNumberOfPageBtn(event) {
   }
 }
 
-
 function removeTextContentBtn() {
   for (let i = 1; i < pagingItems.length - 1; i += 1) {
     pagingItems[i].textContent = '';
@@ -87,8 +86,3 @@ function setCurrentColor(event) {
     fifthBtn.classList.add('js-current-number-page_Btn');
   }
 }
-
-
-
-export default setCurrentColor;
-

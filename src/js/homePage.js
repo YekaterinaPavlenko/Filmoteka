@@ -2,20 +2,17 @@ import refs from './refs';
 import notifications from './notifications.js';
 import updateMarcup from './updateMarkupGallery.js';
 import MovieApiService from './apiService.js';
-import setCurrentColor from './pagination';
+import addPaginationMarkup from './pagenationMarkup.js';
 
 const movieApiService = new MovieApiService(); //Создаю экземпляр класса поиска фильмов
 
 refs.submitBtn.addEventListener('submit', fetchMoviesByQuery);
 refs.homeBtn.addEventListener('click', sendToHomePage); // слушатель на кнопке НОМЕ- отправляет на основную(первую) стр.
 refs.logoBtn.addEventListener('click', sendToHomePage); // слушатель на кнопке Filmoteka ^ делает то же самое
-refs.pagingList.addEventListener('click', event => {
-  updateMarkupByPages(event);
-  setCurrentColor(event);
-});
+refs.pagingList.addEventListener('click', updateMarkupByPages);
 
 fetchPopMovies(); //Запрос и отрисовка главной страницы при  первой загрузке
-
+addPaginationMarkup();
 // ф-ция запроса популярных фильмов и отрисовки результата запроса
 
 function fetchPopMovies() {
@@ -75,7 +72,7 @@ function sendToHomePage(event) {
   refs.homeBtn.classList.add('current');
   refs.gallery.classList.remove('gallery-bgr');
 }
-
+/////ф-ция подгрузки в зависимости от типа запроса
 function uploadMovies() {
   // event.preventDefault();
   if (refs.inputForm.value != '') {
@@ -108,15 +105,16 @@ const backPageBtn = document.querySelector('.js-move-left');
 forwardPageBtn.addEventListener('click', forwardOnePage);
 backPageBtn.addEventListener('click', backOnePage);
 
+/////ф-ция  подгрузки фильмов постранично
 function updateMarkupByPages(event) {
   if (event.target.nodeName !== 'SPAN') {
     return;
   }
   event.preventDefault();
-  currentNumberOfPageBtn = event.target.textContent;
-  movieApiService.page = currentNumberOfPageBtn;
+  currentNumberOfPageBtn = +event.target.textContent;
+  movieApiService.page = +currentNumberOfPageBtn;
   console.log(movieApiService.page);
-  console.log(typeof movieApiService.page);
+  // console.log(typeof movieApiService.page);
 
   uploadMovies();
 }
@@ -129,7 +127,7 @@ function forwardOnePage(event) {
   const toNumbPage = Number(movieApiService.page);
   movieApiService.page = toNumbPage + 1;
   console.log(movieApiService.page);
-  console.log(typeof movieApiService.page);
+  // console.log(typeof movieApiService.page);
   uploadMovies();
 }
 /////////// на одну страницу назад от текущей
@@ -144,5 +142,5 @@ function backOnePage(event) {
   uploadMovies();
 }
 
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////
 export { sendToHomePage, updateMarkupByPages, clearGallery };

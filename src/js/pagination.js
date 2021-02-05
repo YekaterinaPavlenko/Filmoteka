@@ -43,6 +43,7 @@ function setNumberOfPageBtn(event) {
     event.target.textContent < maxPages - 4
   ) {
     currentNumberOfPageBtn = event.target.textContent;
+    console.log(currentNumberOfPageBtn);
     removeTextContentBtn();
     secondBtn.textContent = '';
     secondBtn.classList.add('three-dots');
@@ -92,11 +93,48 @@ function setCurrentColor(event) {
 }
 
 // function backOnePage(event) {
-//   event.preventDefault();
-//   if (currentNumberOfPageBtn >= 2) {
-//     currentNumberOfPageBtn = +event.target.textContent - 1;
-//     // setNumberOfPageBtn(event);
-//     // setCurrentColor(event);
+//   if (event.target == backPageBtn) {
+//     let newCurrentTarget = +currentNumberOfPageBtn;
+//     console.log(newCurrentTarget);
+//     // currentNumberOfPageBtn = +newCurrentTarget - 1;
 //   }
-//   return;
+// }
+// function backOnePage(event) {
+//   event.preventDefault();
+//   for (let i = 0; i < pagingItems.length; i += 1) {
+//     let currentTextContentBtn;
+//     let newI;
+//     if (pagingItems[i].classList.contains('js-current-number-page_Btn')) {
+//       currentTextContentBtn = +pagingItems[i].textContent;
+//       pagingItems[i].classList.remove('js-current-number-page_Btn');
+//       // if (
+//       //   +pagingItems[i].textContent > 1 &&
+//       //   +pagingItems[i].textContent <= 5 &&
+//       //   +pagingItems[i].textContent == currentTextContentBtn - 1
+//       // ) {
+//       //   pagingItems[i].classList.add('js-current-number-page_Btn');
+//       // }
+
+//       console.log(pagingItems[i].textContent);
+//       // console.log(pagingItems[i].indexOf);
+//     }
+//     // if (+pagingItems[i].textContent <= 1) {
+//     //   console.log(pagingItems[i]);
+//     //   return;
+//     // } else if (
+//     //   +pagingItems[i].textContent > 1 &&
+//     //   +pagingItems[i].textContent <= 5
+//     // ) {
+//     //   console.log(indexOf(pagingItems[i]));
+//     //   // pagingItems[i].textContent = '';
+//     // }
+//   }
+//   // console.log(pagingItems[i].classList.includes('js-current-number-page_Btn'));
+//   console.dir(refs.pagingList);
+//   //   if (currentNumberOfPageBtn >= 2) {
+//   //     currentNumberOfPageBtn = +event.target.textContent - 1;
+//   //     // setNumberOfPageBtn(event);
+//   //     // setCurrentColor(event);
+//   //   }
+//   //   return;
 // }

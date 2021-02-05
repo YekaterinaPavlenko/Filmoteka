@@ -12,7 +12,7 @@
 .pagination-box {
   display: flex;
   min-width: 280px;
-  justify-content: center;
+  align-items: center;
   margin: auto;
   // & .hide-page_btn {
   //   display: none;
@@ -26,7 +26,9 @@
 
   // margin-bottom: 60px;
 }
-
+// .page-list {
+//   display: flex;
+// }
 .pagenumbers {
   width: 40px;
   height: 40px;
@@ -34,7 +36,7 @@
   cursor: pointer;
 }
 
-.js-page-number:hover,
+// .js-page-number:hover,
 .js-current-number-page_Btn {
   background: #ff6b08;
   color: #ffffff;

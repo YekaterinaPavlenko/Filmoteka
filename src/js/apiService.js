@@ -10,13 +10,16 @@ export default class MovieApiService {
   //Поиск по запросу популярных фильмов.Вынесла в отдельную ф-цию, чтоб не запутаться в зенах.
   fetchPopularMovies() {
     const url = `${this.baseUrl}/trending/movie/day?api_key=${this.apiKey}&language=en-US&page=${this.page}`;
-
+    spinner.show();
     return fetch(url)
       .then(response => {
         return response.json();
       })
       .then(({ results }) => {
         return results;
+      })
+      .finally(() => {
+        spinner.hide();
       });
   }
 
@@ -104,6 +107,6 @@ const spinner = {
   hide() {
     setTimeout(() => {
       refs.spinnerRef.classList.add('is-hidden');
-    }, 2000);
+    }, 1000);
   },
 };

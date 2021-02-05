@@ -5,6 +5,7 @@ import MovieApiService from './apiService.js';
 import setCurrentColor from './pagination';
 
 const movieApiService = new MovieApiService(); //Создаю экземпляр класса поиска фильмов
+
 refs.submitBtn.addEventListener('submit', fetchMoviesByQuery);
 refs.homeBtn.addEventListener('click', sendToHomePage); // слушатель на кнопке НОМЕ- отправляет на основную(первую) стр.
 refs.logoBtn.addEventListener('click', sendToHomePage); // слушатель на кнопке Filmoteka ^ делает то же самое

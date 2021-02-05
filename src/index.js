@@ -4,7 +4,6 @@ import './js/refs.js';
 import './js/notifications.js';
 import './js/apiService.js';
 import './templates/cardMainPage.hbs';
-import './js/pagination.js';
 import './js/updateMarkupGallery.js';
 import './js/homePage.js';
 // import './js/pagination.js';

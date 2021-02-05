@@ -30,24 +30,24 @@ function openModal(event) {
   refs.main.classList.add('is-hidden');
   fetchFilm(id);
   refs.openModal.removeEventListener('click', openModal);
+  refs.logoBtn.addEventListener('click', closeModal);
+  refs.homeBtn.addEventListener('click', closeModal);
   window.addEventListener('keydown', closeModal);
   refs.backdrop.addEventListener('click', closeModal);
 }
 
 function closeModal(e) {
   e.preventDefault();
-  if (e.code == 'Escape' || e.target.classList.contains('js-backdrop')) {
-    refs.modalBox.classList.add('is-hidden');
-    // refs.header.classList.remove('is-hidden');
-    refs.searchForm.classList.remove('visabilyty-off');
-    refs.footer.classList.remove('is-hidden');
-    refs.main.classList.remove('is-hidden');
-    refs.modalContent.innerHTML = '';
-    window.removeEventListener('keydown', closeModal);
-    refs.backdrop.removeEventListener('click', closeModal);
-    refs.openModal.addEventListener('click', openModal);
-    // console.log('close modal window');
-  }
+  refs.modalBox.classList.add('is-hidden');
+  // refs.header.classList.remove('is-hidden');
+  refs.searchForm.classList.remove('visabilyty-off');
+  refs.footer.classList.remove('is-hidden');
+  refs.main.classList.remove('is-hidden');
+  refs.modalContent.innerHTML = '';
+  window.removeEventListener('keydown', closeModal);
+  refs.backdrop.removeEventListener('click', closeModal);
+  refs.openModal.addEventListener('click', openModal);
+  // console.log('close modal window');
 }
 
 function fetchFilm(id) {

@@ -2,13 +2,17 @@ import refs from './refs';
 import notifications from './notifications.js';
 import updateMarcup from './updateMarkupGallery.js';
 import MovieApiService from './apiService.js';
+import setCurrentColor from './pagination';
 
 const movieApiService = new MovieApiService(); //Создаю экземпляр класса поиска фильмов
 
 refs.submitBtn.addEventListener('submit', fetchMoviesByQuery);
 refs.homeBtn.addEventListener('click', sendToHomePage); // слушатель на кнопке НОМЕ- отправляет на основную(первую) стр.
 refs.logoBtn.addEventListener('click', sendToHomePage); // слушатель на кнопке Filmoteka ^ делает то же самое
-refs.pagingList.addEventListener('click', updateMarkupByPages);
+refs.pagingList.addEventListener('click', event => {
+  updateMarkupByPages(event);
+  setCurrentColor(event);
+});
 
 fetchPopMovies(); //Запрос и отрисовка главной страницы при  первой загрузке
 
@@ -72,27 +76,6 @@ function sendToHomePage(event) {
   refs.gallery.classList.remove('gallery-bgr');
 }
 
-////Попытка привязать подгрузку разных страниц под номера страниц удалась!
-
-let currentNumberOfPageBtn = 1;
-
-function updateMarkupByPages(event) {
-  event.preventDefault();
-  currentNumberOfPageBtn = +event.target.textContent;
-  movieApiService.page = currentNumberOfPageBtn;
-  console.log(movieApiService.page);
-  uploadMovies();
-}
-
-// console.log(currentNumberOfPageBtn);
-// function backOnePage(event) {
-//   event.preventDefault();
-//   let newCurrentTarget = +currentNumberOfPageBtn - 1;
-//   console.log(newCurrentTarget);
-//   // movieApiService.page = +newCurrentTarget;
-//   // uploadMovies();
-// }
-
 function uploadMovies() {
   // event.preventDefault();
   if (refs.inputForm.value != '') {
@@ -117,4 +100,49 @@ function uploadMovies() {
   }
 }
 
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+let currentNumberOfPageBtn = 1;
+
+const forwardPageBtn = document.querySelector('.js-move-right');
+const backPageBtn = document.querySelector('.js-move-left');
+forwardPageBtn.addEventListener('click', forwardOnePage);
+backPageBtn.addEventListener('click', backOnePage);
+
+function updateMarkupByPages(event) {
+  if (event.target.nodeName !== 'SPAN') {
+    return;
+  }
+  event.preventDefault();
+  currentNumberOfPageBtn = event.target.textContent;
+  movieApiService.page = currentNumberOfPageBtn;
+  console.log(movieApiService.page);
+  console.log(typeof movieApiService.page);
+
+  uploadMovies();
+}
+
+/////////// на одну страницу вперед от текущей
+function forwardOnePage(event) {
+  if (movieApiService.page === 1000) {
+    return;
+  }
+  const toNumbPage = Number(movieApiService.page);
+  movieApiService.page = toNumbPage + 1;
+  console.log(movieApiService.page);
+  console.log(typeof movieApiService.page);
+  uploadMovies();
+}
+/////////// на одну страницу назад от текущей
+function backOnePage(event) {
+  if (movieApiService.page === 1) {
+    return;
+  }
+  const toNumbPage = Number(movieApiService.page);
+  movieApiService.page = toNumbPage - 1;
+  console.log(movieApiService.page);
+  console.log(typeof movieApiService.page);
+  uploadMovies();
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 export { sendToHomePage, updateMarkupByPages, clearGallery };

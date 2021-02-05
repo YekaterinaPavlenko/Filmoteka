@@ -6,7 +6,7 @@ import './js/apiService.js';
 import './templates/cardMainPage.hbs';
 import './js/updateMarkupGallery.js';
 import './js/homePage.js';
-import './js/pagination.js';
+// import './js/pagination.js';
 import './js/pagenationMarkup.js';
 import './js/4filmDetailsPage.js';
 import './js/5libraryPage';

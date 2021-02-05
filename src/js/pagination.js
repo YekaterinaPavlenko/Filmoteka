@@ -1,9 +1,5 @@
 import refs from './refs.js';
-// import MovieApiService from './apiService.js';
 import addPaginationMarkup from './pagenationMarkup.js';
-// import {updateMarkupByPages} from './homePage.js';
-
-// const movieApiService = new MovieApiService();
 
 addPaginationMarkup();
 const pagingItems = document.querySelectorAll('.js-page-number');
@@ -19,10 +15,9 @@ const eightBtn = document.getElementById('pag8');
 
 refs.pagingList.addEventListener('click', setNumberOfPageBtn);
 refs.pagingList.addEventListener('click', setCurrentColor);
-// backPageBtn.addEventListener('click', backOnePage);
-// forwardPageBtn.addEventListener('click', forwardOnePage);
 
 const maxPages = 1000;
+
 let currentNumberOfPageBtn = 1;
 function setNumberOfPageBtn(event) {
   event.preventDefault();
@@ -67,6 +62,7 @@ function setNumberOfPageBtn(event) {
   }
 }
 
+
 function removeTextContentBtn() {
   for (let i = 1; i < pagingItems.length - 1; i += 1) {
     pagingItems[i].textContent = '';
@@ -92,49 +88,7 @@ function setCurrentColor(event) {
   }
 }
 
-// function backOnePage(event) {
-//   if (event.target == backPageBtn) {
-//     let newCurrentTarget = +currentNumberOfPageBtn;
-//     console.log(newCurrentTarget);
-//     // currentNumberOfPageBtn = +newCurrentTarget - 1;
-//   }
-// }
-// function backOnePage(event) {
-//   event.preventDefault();
-//   for (let i = 0; i < pagingItems.length; i += 1) {
-//     let currentTextContentBtn;
-//     let newI;
-//     if (pagingItems[i].classList.contains('js-current-number-page_Btn')) {
-//       currentTextContentBtn = +pagingItems[i].textContent;
-//       pagingItems[i].classList.remove('js-current-number-page_Btn');
-//       // if (
-//       //   +pagingItems[i].textContent > 1 &&
-//       //   +pagingItems[i].textContent <= 5 &&
-//       //   +pagingItems[i].textContent == currentTextContentBtn - 1
-//       // ) {
-//       //   pagingItems[i].classList.add('js-current-number-page_Btn');
-//       // }
 
-//       console.log(pagingItems[i].textContent);
-//       // console.log(pagingItems[i].indexOf);
-//     }
-//     // if (+pagingItems[i].textContent <= 1) {
-//     //   console.log(pagingItems[i]);
-//     //   return;
-//     // } else if (
-//     //   +pagingItems[i].textContent > 1 &&
-//     //   +pagingItems[i].textContent <= 5
-//     // ) {
-//     //   console.log(indexOf(pagingItems[i]));
-//     //   // pagingItems[i].textContent = '';
-//     // }
-//   }
-//   // console.log(pagingItems[i].classList.includes('js-current-number-page_Btn'));
-//   console.dir(refs.pagingList);
-//   //   if (currentNumberOfPageBtn >= 2) {
-//   //     currentNumberOfPageBtn = +event.target.textContent - 1;
-//   //     // setNumberOfPageBtn(event);
-//   //     // setCurrentColor(event);
-//   //   }
-//   //   return;
-// }
+
+export default setCurrentColor;
+

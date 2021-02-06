@@ -1,7 +1,9 @@
 import refs from './refs.js';
 import addPaginationMarkup from './pagenationMarkup.js';
 import { forwardOnePage, backOnePage } from './homePage.js';
+import MovieApiService from './apiService.js';
 
+const movieApiService = new MovieApiService();
 addPaginationMarkup();
 const pagingItems = document.querySelectorAll('.js-page-number');
 const backPageBtn = document.querySelector('.js-move-left');
@@ -25,11 +27,13 @@ forwardPageBtn.addEventListener('click', forwardOnePage);
 const maxPages = 1000;
 
 let currentNumberOfPageBtn = 1;
+let currentPage;
 function setNumberOfPageBtn(event) {
   event.preventDefault();
   if (event.target.nodeName == 'SPAN') {
+    currentNumberOfPageBtn = +event.target.textContent;
     if (event.target.textContent <= 5) {
-      currentNumberOfPageBtn = +event.target.textContent;
+      // currentNumberOfPageBtn = +event.target.textContent;
       removeTextContentBtn();
       secondBtn.classList.remove('three-dots');
       secondBtn.textContent = 2;
@@ -44,8 +48,8 @@ function setNumberOfPageBtn(event) {
       event.target.textContent > 5 &&
       event.target.textContent < maxPages - 4
     ) {
-      currentNumberOfPageBtn = event.target.textContent;
-      console.log(currentNumberOfPageBtn);
+      // currentNumberOfPageBtn = event.target.textContent;
+      // console.log(currentNumberOfPageBtn);
       removeTextContentBtn();
       secondBtn.textContent = '';
       secondBtn.classList.add('three-dots');
@@ -56,7 +60,7 @@ function setNumberOfPageBtn(event) {
       seventhBtn.textContent = +currentNumberOfPageBtn + 2;
       eightBtn.classList.add('three-dots');
     } else if (event.target.textContent >= maxPages - 4) {
-      currentNumberOfPageBtn = event.target.textContent;
+      // currentNumberOfPageBtn = event.target.textContent;
       removeTextContentBtn();
       secondBtn.classList.add('three-dots');
       thirdBtn.textContent = maxPages - 6;
@@ -68,6 +72,7 @@ function setNumberOfPageBtn(event) {
       eightBtn.textContent = maxPages - 1;
     }
   }
+  return currentNumberOfPageBtn;
 }
 
 function removeTextContentBtn() {
@@ -78,6 +83,7 @@ function removeTextContentBtn() {
 
 let beforePage;
 let afterPageNumb;
+
 function setCurrentColor(event) {
   event.preventDefault();
   if (event.target.nodeName === 'SPAN') {
@@ -119,6 +125,8 @@ function setCurrentColor(event) {
       }
     }
   } else if (event.target === forwardPageBtn) {
+    // console.log(afterPageNumb);
+
     for (let i = 0; i < pagingItems.length; i += 1) {
       if (pagingItems[i].className.includes('js-current-number-page_Btn')) {
         afterPageNumb = +pagingItems[i].textContent + 1;
@@ -126,26 +134,49 @@ function setCurrentColor(event) {
         pagingItems[i].classList.remove('js-current-number-page_Btn');
       }
     }
-    for (let i = 0; i < pagingItems.length - 1; i += 1) {
-      // console.log(afterPageNumb);
-      if (
-        pagingItems[i].textContent.includes(afterPageNumb) &&
-        afterPageNumb <= maxPages
-      ) {
-        pagingItems[i].classList.add('js-current-number-page_Btn');
+    if (afterPageNumb <= 5 || afterPageNumb >= maxPages - 4) {
+      for (let i = 0; i < pagingItems.length - 1; i += 1) {
+        // console.log(afterPageNumb);
+        if (
+          pagingItems[i].textContent.includes(afterPageNumb) &&
+          afterPageNumb <= maxPages
+        ) {
+          pagingItems[i].classList.add('js-current-number-page_Btn');
+        } else if (afterPageNumb > maxPages) {
+          ninthBtn.classList.add('js-current-number-page_Btn');
+        }
       }
+    }
+    if (afterPageNumb > 5 && afterPageNumb < maxPages - 4) {
+      //   for (let i = 0; i < pagingItems.length; i += 1) {
+      // if (pagingItems[i].className.includes('js-current-number-page_Btn')) {
+      //   afterPageNumb = +firstBtn.textContent + 1;
+      //   // console.log(afterPageNumb);
+      //   pagingItems[i].classList.remove('js-current-number-page_Btn');
+      // }
+      for (let i = 0; i < pagingItems.length - 1; i += 1) {
+        // console.log(afterPageNumb);
+        if (
+          pagingItems[i].textContent.includes(afterPageNumb - 1) &&
+          afterPageNumb <= maxPages
+        ) {
+          pagingItems[i].classList.add('js-current-number-page_Btn');
+        }
+      }
+      // }
     }
   }
 }
-
+// console.log(movieApiService.page);
 function setNumbsOfPagesByArrows(event) {
   event.preventDefault();
   let currentPage;
-  for (let i = 0; i < pagingItems.length; i += 1) {
-    if (pagingItems[i].classList.value.includes('js-current-number-page_Btn')) {
-      currentPage = +pagingItems[i].textContent;
-    }
-  }
+  console.log(currentNumberOfPageBtn);
+  // for (let i = 0; i < pagingItems.length; i += 1) {
+  //   if (pagingItems[i].classList.value.includes('js-current-number-page_Btn')) {
+  //     currentPage = +pagingItems[i].textContent;
+  //   }
+  // }
   if (currentPage <= 5) {
     removeTextContentBtn();
     secondBtn.classList.remove('three-dots');
@@ -167,6 +198,16 @@ function setNumbsOfPagesByArrows(event) {
     sixthBtn.textContent = +currentPage + 1;
     seventhBtn.textContent = +currentPage + 2;
     eightBtn.classList.add('three-dots');
+  } else if (currentPage >= maxPages - 4) {
+    removeTextContentBtn();
+    secondBtn.classList.add('three-dots');
+    thirdBtn.textContent = maxPages - 6;
+    fourthBtn.textContent = maxPages - 5;
+    fifthBtn.textContent = maxPages - 4;
+    sixthBtn.textContent = maxPages - 3;
+    seventhBtn.textContent = maxPages - 2;
+    eightBtn.classList.remove('three-dots');
+    eightBtn.textContent = maxPages - 1;
   }
-  console.log(currentPage);
+  // console.log(currentPage);
 }

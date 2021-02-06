@@ -16,7 +16,7 @@ export default class MovieApiService {
         return response.json();
       })
       .then(({ results }) => {
-        console.log(this.page);
+        // console.log(this.page);
         return results;
       })
       .finally(() => {
@@ -108,6 +108,6 @@ const spinner = {
   hide() {
     setTimeout(() => {
       refs.spinnerRef.classList.add('is-hidden');
-    }, 1000);
+    }, 500);
   },
 };

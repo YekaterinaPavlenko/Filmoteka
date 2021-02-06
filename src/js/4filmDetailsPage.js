@@ -11,6 +11,7 @@ const API_KEY = 'c2406e33bae3c04a8fdebb618c81ede7';
 // console.log(refs.modal);
 
 refs.openModal.addEventListener('click', openModal);
+refs.overlayRef.addEventListener('click', onOverlayClick);
 
 let id;
 
@@ -32,22 +33,37 @@ function openModal(event) {
   refs.openModal.removeEventListener('click', openModal);
   refs.logoBtn.addEventListener('click', closeModal);
   refs.homeBtn.addEventListener('click', closeModal);
-  window.addEventListener('keydown', closeModal);
-  refs.backdrop.addEventListener('click', closeModal);
+  window.addEventListener('keydown', onEscPress);
+  // refs.backdrop.addEventListener('click', closeModal);
 }
 
 function closeModal(e) {
-  e.preventDefault();
+  // e.preventDefault();
   refs.modalBox.classList.add('is-hidden');
   // refs.header.classList.remove('is-hidden');
   refs.searchForm.classList.remove('visabilyty-off');
   refs.footer.classList.remove('is-hidden');
   refs.main.classList.remove('is-hidden');
   refs.modalContent.innerHTML = '';
-  window.removeEventListener('keydown', closeModal);
-  refs.backdrop.removeEventListener('click', closeModal);
+  window.removeEventListener('keydown', onEscPress);
+  // refs.backdrop.removeEventListener('click', closeModal);
   refs.openModal.addEventListener('click', openModal);
   // console.log('close modal window');
+}
+
+function onEscPress(event) {
+  if (event.code === 'Escape') {
+    closeModal();
+  }
+}
+
+function onOverlayClick(event) {
+  console.dir(event.target);
+  console.dir(event.currentTarget);
+
+  if (event.target === event.curentTarget) {
+    closeModal();
+  }
 }
 
 function fetchFilm(id) {

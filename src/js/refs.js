@@ -23,5 +23,6 @@ const refs = {
   queueBtnRef: document.querySelector('.queue-show-btn'),
   headerRef: document.querySelector('.header'),
   spinnerRef: document.querySelector('#load'),
+  overlayRef: document.querySelector('.backdrop_overlay'),
 };
 export default refs;

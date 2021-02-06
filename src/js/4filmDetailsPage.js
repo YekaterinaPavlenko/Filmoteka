@@ -34,7 +34,7 @@ function openModal(event) {
   refs.logoBtn.addEventListener('click', closeModal);
   refs.homeBtn.addEventListener('click', closeModal);
   window.addEventListener('keydown', onEscPress);
-  refs.backdrop.addEventListener('click', closeModal);
+  // refs.backdrop.addEventListener('click', closeModal);
 }
 
 function closeModal(e) {
@@ -46,7 +46,7 @@ function closeModal(e) {
   refs.main.classList.remove('is-hidden');
   refs.modalContent.innerHTML = '';
   window.removeEventListener('keydown', onEscPress);
-  refs.backdrop.removeEventListener('click', closeModal);
+  // refs.backdrop.removeEventListener('click', closeModal);
   refs.openModal.addEventListener('click', openModal);
   // console.log('close modal window');
 }

@@ -1,7 +1,8 @@
 {{#each this}}
 <li class="gallery-item">
     <div class="gallery-card">
-        <img src="https://image.tmdb.org/t/p/original{{poster_path}}" onerror="this.src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_OCbiILB7dzhnlRuFxI_wShjtTtDg0gg3GQ&usqp=CAU';" alt="{{title}}" class="gallery-image" data-id={{id}}>
+        <img src="https://image.tmdb.org/t/p/original{{poster_path}}"  alt="{{title}}" class="gallery-image" data-id={{id}}>
+
         <div class="trailer-space">
             <button class="trailer">
                 <div class="trailer-div"></div>
@@ -20,4 +21,7 @@
     </div>
 </li>
 {{/each}}
+
+
+{{!-- onerror="this.src='./images/picture-on-movie1.jpg';" --}}
 

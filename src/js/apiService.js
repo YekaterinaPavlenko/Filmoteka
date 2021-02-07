@@ -1,8 +1,10 @@
 import refs from './refs';
+
 export default class MovieApiService {
   constructor() {
     this.inputValue = '';
     this.searchQuery = '';
+    this.total_pages;
     this.page = 1;
     this.apiKey = '90996ae54f24edbe7886996fac12fc31';
     this.baseUrl = `https://api.themoviedb.org/3`;
@@ -15,9 +17,9 @@ export default class MovieApiService {
       .then(response => {
         return response.json();
       })
-      .then(({ results }) => {
-        // console.log(this.page);
-        return results;
+      .then(data => {
+        this.total_pages = data.total_pages;
+        return data.results;
       })
       .finally(() => {
         spinner.hide();
@@ -32,8 +34,9 @@ export default class MovieApiService {
       .then(response => {
         return response.json();
       })
-      .then(({ results }) => {
-        return results;
+      .then(data => {
+        this.total_pages = data.total_pages;
+        return data.results;
       })
       .finally(() => {
         spinner.hide();

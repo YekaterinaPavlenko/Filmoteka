@@ -31,8 +31,7 @@ function fetchPopMovies() {
 function fetchMoviesByQuery(event) {
   event.preventDefault();
   movieApiService.query = event.target.elements.search.value;
-  clearGallery();
-
+  // notifications.removeNotifications();
   movieApiService
     .createQueryMovieListWithGenres()
     .then(results => {
@@ -40,6 +39,7 @@ function fetchMoviesByQuery(event) {
       if (results.length === 0) {
         notifications.notFoundNotification();
       }
+      clearGallery();
       updateMarcup(results);
     })
     .catch(error => {
@@ -143,4 +143,5 @@ export {
   clearGallery,
   forwardOnePage,
   backOnePage,
+  movieApiService,
 };

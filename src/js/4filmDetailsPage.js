@@ -58,10 +58,7 @@ function onEscPress(event) {
 }
 
 function onOverlayClick(event) {
-  console.dir(event.target);
-  console.dir(event.currentTarget);
-
-  if (event.target === event.curentTarget) {
+  if (event.target === event.currentTarget) {
     closeModal();
   }
 }
@@ -137,8 +134,10 @@ function appendMarkup(movie) {
     let filmId = filmsWatched.find(el => el === currentIdFilm);
     if (filmId === currentIdFilm) {
       watchedBtn.textContent = 'Delete from watched';
+      watchedBtn.classList.remove('active');
     } else {
       watchedBtn.textContent = 'Add to watched';
+      watchedBtn.classList.add('active');
     }
 
     let filmsQueue = [];
@@ -150,8 +149,10 @@ function appendMarkup(movie) {
     filmId = filmsQueue.find(el => el === currentIdFilm);
     if (filmId === currentIdFilm) {
       queueBtn.textContent = 'Delete from Queue';
+      queueBtn.classList.remove('active');
     } else {
       queueBtn.textContent = 'Add to Queue';
+      queueBtn.classList.add('active');
     }
   }
 }

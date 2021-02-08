@@ -78,7 +78,7 @@ function uploadMovies() {
   // event.preventDefault();
   if (refs.inputForm.value != '') {
     movieApiService.query = refs.inputForm.value;
-    // loadMoreBtn.enable();
+
     clearGallery();
     movieApiService
       .createQueryMovieListWithGenres()
@@ -147,24 +147,24 @@ export {
   backOnePage,
   movieApiService,
 };
-function renderPaging() {
-  movieApiService
-    .fetchPopularArticlesPages()
-    .then(results => {
-      console.log(results);
-      console.log(results.page, results.total_results, movieApiService.url);
-      // var paginator = pagination.create('search', {
-      //   prelink: movieApiService.url,
-      //   current: results.page,
-      //   rowsPerPage: 20,
-      //   totalResult: results.total_results,
-      // });
-      // pagination(results.total_pages, results.page, results.total_results);
-      // paginator.render();
-      // pagination(results.total_pages, results.total_results);
-    })
-    .catch(error => {
-      notifications.errorRequest();
-    });
-}
+// function renderPaging() {
+//   movieApiService
+//     .fetchPopularArticlesPages()
+//     .then(results => {
+//       console.log(results);
+//       console.log(results.page, results.total_results, movieApiService.url);
+//       // var paginator = pagination.create('search', {
+//       //   prelink: movieApiService.url,
+//       //   current: results.page,
+//       //   rowsPerPage: 20,
+//       //   totalResult: results.total_results,
+//       // });
+//       // pagination(results.total_pages, results.page, results.total_results);
+//       // paginator.render();
+//       // pagination(results.total_pages, results.total_results);
+//     })
+//     .catch(error => {
+//       notifications.errorRequest();
+//     });
+// }
 // renderPaging();

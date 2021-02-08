@@ -156,3 +156,18 @@ function appendMarkup(movie) {
     }
   }
 }
+
+//Footer in modal tooltip
+const tooltipContainer = document.querySelector(
+  '.film-tooltip-container-modal',
+);
+
+tooltipContainer.addEventListener('mouseover', () => {
+  const tooltip = tooltipContainer.querySelector('.film-tooltip-modal');
+  tooltip.classList.add('active');
+});
+
+tooltipContainer.addEventListener('mouseleave', () => {
+  const tooltip = tooltipContainer.querySelector('.film-tooltip-modal');
+  tooltip.classList.remove('active');
+});

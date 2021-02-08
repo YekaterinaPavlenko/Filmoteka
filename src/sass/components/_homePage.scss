@@ -1,3 +1,4 @@
+
 /////////////////////////новые стили для карточек.
 .gallery {
   padding: 0px;
@@ -19,9 +20,8 @@
   font-size: 12px;
   line-height: 1.33;
   margin: auto;
-
+  // min-height: 518px;
   margin-bottom: 20px;
-  height: 538px;
 
   @media screen and (min-width: 768px) {
     width: calc((100% - 30px) / 2);
@@ -44,7 +44,7 @@
 .gallery-image {
   width: 280px;
   height: 398px;
-  margin-bottom: 6px;
+  margin-bottom: 10px;
   border-radius: 5px;
   cursor: pointer;
   transform: scale(1, 1);
@@ -66,7 +66,7 @@
   margin-top: 0px;
   margin-bottom: 5px;
   width: 274px;
-
+  margin-top: 10px;
   text-align: left;
   @media screen and (min-width: 768px) {
     width: 293px;
@@ -224,3 +224,5 @@
     height: 600px;
   }
 }
+
+

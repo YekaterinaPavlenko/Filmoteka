@@ -6,20 +6,24 @@ export default class MovieApiService {
     this.inputValue = '';
     this.searchQuery = '';
     this.total_pages;
+    this.total_results;
     this.page = 1;
+    this.url;
     this.apiKey = '90996ae54f24edbe7886996fac12fc31';
     this.baseUrl = `https://api.themoviedb.org/3`;
   }
   //Поиск по запросу популярных фильмов.Вынесла в отдельную ф-цию, чтоб не запутаться в зенах.
   fetchPopularMovies() {
     const url = `${this.baseUrl}/trending/movie/day?api_key=${this.apiKey}&language=en-US&page=${this.page}`;
+    this.url = url;
     spinner.show();
     return fetch(url)
       .then(response => {
+        // console.log(response);
         return response.json();
       })
       .then(data => {
-        this.total_pages = data.total_pages;
+        // console.log(data);
         return data.results;
       })
       .finally(() => {
@@ -30,13 +34,13 @@ export default class MovieApiService {
   //Поиск по запросу фильмов по слову.Вынесла в отдельную ф-цию, чтоб не запутаться в зенах.
   fethcMovieByQuery() {
     const url = `${this.baseUrl}/search/movie?api_key=${this.apiKey}&query=${this.query}&page=${this.page}`;
+    this.url = url;
     spinner.show();
     return fetch(url)
       .then(response => {
         return response.json();
       })
       .then(data => {
-        this.total_pages = data.total_pages;
         return data.results;
       })
       .finally(() => {
@@ -101,5 +105,17 @@ export default class MovieApiService {
         }));
       });
     });
+  }
+  fetchPopularArticlesPages() {
+    const url = `${this.baseUrl}/trending/movie/day?api_key=${this.apiKey}&language=en-US&page=${this.page}`;
+    return fetch(url)
+      .then(response => {
+        // console.log(response.json());
+        return response.json();
+      })
+      .then(data => {
+        // console.log(data);
+        return data;
+      });
   }
 }

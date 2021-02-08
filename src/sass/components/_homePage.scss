@@ -14,12 +14,12 @@
 }
 
 .gallery-item {
-  margin-bottom: 20px;
   font-family: 'Roboto', sans-serif;
   font-weight: 500;
   font-size: 12px;
   line-height: 1.33;
   margin: auto;
+
   margin-bottom: 20px;
   height: 538px;
 
@@ -66,9 +66,11 @@
   margin-top: 0px;
   margin-bottom: 5px;
   width: 274px;
+
   text-align: left;
   @media screen and (min-width: 768px) {
     width: 293px;
+    min-height: 46px;
   }
   @media screen and (min-width: 1024px) {
     width: 274px;
@@ -109,9 +111,9 @@
   text-align: center;
 }
 // TRAILER - BUTTON
-.trailer-space {
-  margin: 20px 0 0;
-}
+// .trailer-space {
+//   margin: 20px 0 0;
+// }
 .trailer {
   position: relative;
   top: 50%;
@@ -124,7 +126,7 @@
   border: 0;
   cursor: pointer;
   border-radius: 5px;
-  transform: translateY(-50%);
+  // transform: translateY(-50%);
   box-shadow: 0 10px 20px -5px #94a6af;
   overflow: hidden;
 }

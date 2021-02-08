@@ -21,11 +21,23 @@ refs.pagingList.addEventListener('click', setNumberOfPageBtn);
 refs.pagingList.addEventListener('click', setCurrentColor);
 backPageBtn.addEventListener('click', backOnePage);
 forwardPageBtn.addEventListener('click', forwardOnePage);
+refs.libraryBtnRef.addEventListener('click', hidePaging);
+refs.homeBtn.addEventListener('click', showPaging);
 
-const maxPages = 1000;
-console.dir(movieApiService);
-function setNumberOfPageBtn(event) {
+function hidePaging(event) {
   event.preventDefault();
+  refs.paginationBox.classList.add('is-hidden');
+}
+function showPaging(event) {
+  event.preventDefault();
+  refs.paginationBox.classList.remove('is-hidden');
+}
+
+console.dir(movieApiService);
+const maxPages = 1000;
+function setNumberOfPageBtn(event, total_results) {
+  event.preventDefault();
+  // const maxPages = 1000;
   let currentNumberOfPageBtn = 1;
   if (event.target.nodeName == 'SPAN') {
     currentNumberOfPageBtn = +event.target.textContent;
@@ -51,7 +63,7 @@ function setNumberOfPageBtn(event) {
       }
     }
     currentNumberOfPageBtn = afterePage;
-    console.log(currentNumberOfPageBtn);
+    // console.log(currentNumberOfPageBtn);
   }
   if (currentNumberOfPageBtn <= 5) {
     removeTextContentBtn();

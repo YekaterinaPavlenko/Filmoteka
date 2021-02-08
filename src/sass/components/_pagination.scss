@@ -30,12 +30,13 @@
 //   display: flex;
 // }
 .pagenumbers {
+  list-style: none;
   width: 40px;
   height: 40px;
   line-height: 40px;
   cursor: pointer;
 }
-
+.js-page-number.active,
 .js-page-number:hover,
 .js-current-number-page_Btn {
   background: #ff6b08;
@@ -53,20 +54,20 @@
 }
 
 .pag-left {
-  background-image: url(../images/arrow-left.png);
+  // background-image: url(../images/arrow-left.png);
   &:hover {
     background: #ff6b08;
-    background-image: url(../images/arrow-left-white.png);
+    // background-image: url(../images/arrow-left-white.png);
     background-repeat: no-repeat;
     background-position: center;
   }
 }
 
 .pag-right {
-  background-image: url(../images/arrow-right.png);
+  // background-image: url(../images/arrow-right.png);
   &:hover {
     background: #ff6b08;
-    background-image: url(../images/arrow-right-white.png);
+    // background-image: url(../images/arrow-right-white.png);
     background-repeat: no-repeat;
     background-position: center;
   }

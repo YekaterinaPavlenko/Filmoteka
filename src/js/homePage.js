@@ -2,6 +2,7 @@ import refs from './refs';
 import notifications from './notifications.js';
 import updateMarcup from './updateMarkupGallery.js';
 import MovieApiService from './apiService.js';
+// import pagination from './paging.js';
 
 const movieApiService = new MovieApiService(); //Создаю экземпляр класса поиска фильмов
 
@@ -39,6 +40,7 @@ function fetchMoviesByQuery(event) {
       if (results.length === 0) {
         notifications.notFoundNotification();
       }
+
       clearGallery();
       updateMarcup(results);
     })
@@ -107,7 +109,7 @@ function updateMarkupByPages(event) {
   event.preventDefault();
   currentNumberOfPageBtn = +event.target.textContent;
   movieApiService.page = +currentNumberOfPageBtn;
-  console.log(movieApiService.page);
+  // console.log(movieApiService.page);
   // console.log(typeof movieApiService.page);
 
   uploadMovies();
@@ -145,3 +147,24 @@ export {
   backOnePage,
   movieApiService,
 };
+function renderPaging() {
+  movieApiService
+    .fetchPopularArticlesPages()
+    .then(results => {
+      console.log(results);
+      console.log(results.page, results.total_results, movieApiService.url);
+      // var paginator = pagination.create('search', {
+      //   prelink: movieApiService.url,
+      //   current: results.page,
+      //   rowsPerPage: 20,
+      //   totalResult: results.total_results,
+      // });
+      // pagination(results.total_pages, results.page, results.total_results);
+      // paginator.render();
+      // pagination(results.total_pages, results.total_results);
+    })
+    .catch(error => {
+      notifications.errorRequest();
+    });
+}
+// renderPaging();

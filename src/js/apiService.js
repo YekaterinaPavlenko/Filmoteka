@@ -1,4 +1,5 @@
 import refs from './refs';
+import spinner from './spinner';
 
 export default class MovieApiService {
   constructor() {
@@ -102,15 +103,3 @@ export default class MovieApiService {
     });
   }
 }
-
-//Spinner
-const spinner = {
-  show() {
-    refs.spinnerRef.classList.remove('is-hidden');
-  },
-  hide() {
-    setTimeout(() => {
-      refs.spinnerRef.classList.add('is-hidden');
-    }, 500);
-  },
-};

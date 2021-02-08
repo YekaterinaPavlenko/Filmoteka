@@ -43,7 +43,7 @@ function fetchItem(item) {
   ).then(response => response.json());
 }
 function showFilms(key) {
-  spinner.show();
+  // spinner.show();
   clearGallery();
   const localStr = localStorage.getItem(key);
   const parse = JSON.parse(localStr);
@@ -55,7 +55,7 @@ function showFilms(key) {
   for (let item of parse) {
     fetchItem(item).then(movie => {
       renderItems(movie);
-      spinner.hide();
+      // spinner.hide();
     });
   }
 }

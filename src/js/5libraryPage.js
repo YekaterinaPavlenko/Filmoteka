@@ -2,6 +2,7 @@
 import refs from './refs';
 import cards from '../templates/cardsLibrary.hbs';
 import { sendToHomePage, clearGallery } from './homePage';
+import spinner from './spinner';
 
 refs.libraryBtnRef.addEventListener('click', event => {
   showFilms('filmsWatched');
@@ -42,6 +43,7 @@ function fetchItem(item) {
   ).then(response => response.json());
 }
 function showFilms(key) {
+  spinner.show();
   clearGallery();
   const localStr = localStorage.getItem(key);
   const parse = JSON.parse(localStr);
@@ -53,6 +55,7 @@ function showFilms(key) {
   for (let item of parse) {
     fetchItem(item).then(movie => {
       renderItems(movie);
+      spinner.hide();
     });
   }
 }

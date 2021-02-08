@@ -59,7 +59,7 @@ ul {
 }
 
 .modal-item {
-  margin: auto;
+  margin: 1em auto auto;
 }
 
 .modal-img {
@@ -271,4 +271,12 @@ ul {
 .visabilyty-on {
   visibility: visible;
   opacity: 1;
+}
+
+.film-tooltip-container-modal {
+  z-index: 1010;
+}
+
+.film-tooltip-modal {
+  z-index: 1010;
 }

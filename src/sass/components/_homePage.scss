@@ -208,3 +208,17 @@
 }
 
 ///////////////////////////////////////////
+
+.trailer_video {
+  width: 450px;
+  height: 320px;
+
+  @media screen and (max-width: 767px) {
+    width: 700px;
+    height: 394px;
+  }
+  @media screen and (min-width: 768px) {
+    width: 915px;
+    height: 600px;
+  }
+}

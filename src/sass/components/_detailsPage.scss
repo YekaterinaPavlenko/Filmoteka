@@ -133,7 +133,9 @@ ul {
     padding-top: 20px;
     padding-bottom: 20px;
   }
-
+  .modal-list > li {
+    align-items: baseline;
+  }
   .modal-list > li p {
     width: 40%;
   }

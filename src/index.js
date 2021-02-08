@@ -14,4 +14,3 @@ import './js/ScrollUp';
 import './js/tooltip';
 import './js/trailers.js';
 
-// import './js/paginTest.js';

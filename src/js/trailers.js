@@ -1,7 +1,6 @@
 import * as basicLightbox from 'basiclightbox';
 import 'basiclightbox/dist/basicLightbox.min.css';
 import refs from './refs';
-// import notifications from './notifications';
 
 const BASE_URL = 'https://api.themoviedb.org/3/';
 const API_KEY = 'c2406e33bae3c04a8fdebb618c81ede7';
@@ -19,7 +18,11 @@ function fetchTrailerFilm(id) {
       trailer.show();
     })
     .catch(error => {
-      console.log('no trailer');
+      const noTrailer = basicLightbox.create(`
+  <img width="450" height="320" src="https://hsto.org/webt/un/y2/nu/uny2nux8h1_fmgig2g-odesccse.jpeg" alt="no found trailer" class="trailer_video">
+`);
+      //<img width="450" height="320" src="https://hsto.org/webt/un/y2/nu/uny2nux8h1_fmgig2g-odesccse.jpeg" alt="no found trailer" class="trailer_video">
+      noTrailer.show();
     });
 }
 

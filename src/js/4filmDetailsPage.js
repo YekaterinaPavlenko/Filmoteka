@@ -33,6 +33,7 @@ function openModal(event) {
   refs.openModal.removeEventListener('click', openModal);
   refs.logoBtn.addEventListener('click', closeModal);
   refs.homeBtn.addEventListener('click', closeModal);
+  refs.libraryBtnRef.addEventListener('click', closeModal);
   window.addEventListener('keydown', onEscPress);
   // refs.backdrop.addEventListener('click', closeModal);
 }

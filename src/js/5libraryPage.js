@@ -43,7 +43,6 @@ function fetchItem(item) {
   ).then(response => response.json());
 }
 function showFilms(key) {
-  spinner.show();
   clearGallery();
   const localStr = localStorage.getItem(key);
   const parse = JSON.parse(localStr);
@@ -52,6 +51,7 @@ function showFilms(key) {
     refs.gallery.insertAdjacentHTML('beforeend', addText());
     linkHomePage();
   } else refs.gallery.classList.remove('gallery-bgr');
+  spinner.show();
   for (let item of parse) {
     fetchItem(item).then(movie => {
       renderItems(movie);

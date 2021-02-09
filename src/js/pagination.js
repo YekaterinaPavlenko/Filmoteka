@@ -39,6 +39,13 @@ function setNumberOfPageBtn(event, total_results) {
   event.preventDefault();
   // const maxPages = 1000;
   let currentNumberOfPageBtn = 1;
+  refs.homeBtn.addEventListener('click', reset); // слушатель на кнопке НОМЕ- отправляет на основную(первую) стр.
+  refs.logoBtn.addEventListener('click', reset);
+  function reset(event) {
+    event.preventDefault();
+    currentNumberOfPageBtn = 1;
+    return currentNumberOfPageBtn;
+  }
   if (event.target.nodeName == 'SPAN') {
     currentNumberOfPageBtn = +event.target.textContent;
     console.log(currentNumberOfPageBtn);
@@ -113,6 +120,16 @@ let afterPageNumb;
 
 function setCurrentColor(event) {
   event.preventDefault();
+  refs.homeBtn.addEventListener('click', resetColor); // слушатель на кнопке НОМЕ- отправляет на основную(первую) стр.
+  refs.logoBtn.addEventListener('click', resetColor);
+  function resetColor(event) {
+    for (let i = 0; i < pagingItems.length; i += 1) {
+      if (pagingItems[i].className.includes('js-current-number-page_Btn')) {
+        pagingItems[i].classList.remove('js-current-number-page_Btn');
+      }
+    }
+    firstBtn.classList.add('js-current-number-page_Btn');
+  }
   if (event.target.nodeName === 'SPAN') {
     if (
       event.target.textContent <= 5 ||

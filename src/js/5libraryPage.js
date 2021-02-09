@@ -47,6 +47,7 @@ function showFilms(key) {
   const localStr = localStorage.getItem(key);
   const parse = JSON.parse(localStr);
   if (localStr === null || parse.length === 0) {
+    spinner.hide();
     refs.gallery.classList.add('gallery-bgr');
     refs.gallery.insertAdjacentHTML('beforeend', addText());
     linkHomePage();
@@ -55,7 +56,7 @@ function showFilms(key) {
   for (let item of parse) {
     fetchItem(item).then(movie => {
       renderItems(movie);
-      // spinner.hide();
+      spinner.hide();
     });
   }
 }

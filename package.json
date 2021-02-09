@@ -12,7 +12,6 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/YekaterinaPavlenko/filmoteka"
-
   },
   "keywords": [],
   "author": "Yekaterina Pavlenko",
@@ -55,6 +54,9 @@
     "core-js": "^3.6.5",
     "handlebars": "^4.7.6",
     "lodash.debounce": "^4.0.8",
-    "material-design-icons": "^3.0.1"
+    "material-design-icons": "^3.0.1",
+    "pagination": "^0.4.6",
+    "v": "^0.3.0",
+    "vscode": "^1.1.37"
   }
 }

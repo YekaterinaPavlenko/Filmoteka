@@ -7,7 +7,7 @@ const spinner = {
   hide() {
     setTimeout(() => {
       refs.spinnerRef.classList.add('is-hidden');
-    }, 500);
+    }, 550);
   },
 };
 

@@ -55,7 +55,7 @@ function showFilms(key) {
   for (let item of parse) {
     fetchItem(item).then(movie => {
       renderItems(movie);
-      spinner.hide();
+      // spinner.hide();
     });
   }
 }

@@ -34,6 +34,8 @@ function openModal(event) {
   refs.logoBtn.addEventListener('click', closeModal);
   refs.homeBtn.addEventListener('click', closeModal);
   refs.libraryBtnRef.addEventListener('click', closeModal);
+  refs.watchedBtnRef.addEventListener('click', closeModal);
+  refs.queueBtnRef.addEventListener('click', closeModal);
   window.addEventListener('keydown', onEscPress);
   // refs.backdrop.addEventListener('click', closeModal);
 }

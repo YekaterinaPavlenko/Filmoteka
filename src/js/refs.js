@@ -24,5 +24,6 @@ const refs = {
   headerRef: document.querySelector('.header'),
   spinnerRef: document.querySelector('#load'),
   overlayRef: document.querySelector('.backdrop_overlay'),
+  themeSwitchRef: document.querySelector('#theme-switch-toggle'),
 };
 export default refs;

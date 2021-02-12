@@ -24,6 +24,7 @@ function myLibraryBtn() {
   refs.headerRef.classList.add('bcg-libr');
   refs.libraryBtnRef.classList.add('current');
   refs.homeBtn.classList.remove('current');
+  refs.paginationBox.classList.add('is-hidden');
 }
 function queueBtn() {
   refs.watchedBtnRef.classList.remove('orange');

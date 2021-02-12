@@ -15,3 +15,4 @@ import './js/5libraryPage';
 import './js/ScrollUp';
 import './js/tooltip';
 import './js/trailers.js';
+import './js/theme.js';

@@ -4,6 +4,7 @@ import { forwardOnePage, backOnePage, movieApiService } from './homePage.js';
 import MovieApiService from './apiService.js';
 
 addPaginationMarkup();
+
 // const pagingItems = document.querySelectorAll('.js-page-number');
 // const backPageBtn = document.querySelector('.js-move-left');
 // const forwardPageBtn = document.querySelector('.js-move-right');

@@ -23,7 +23,6 @@
   box-shadow: 0 5px 20px -5px #94a6af;
 }
 .js-page-number.active,
-.js-page-number:hover,
 .js-current-number-page_Btn {
   background: #ff6b08;
   color: #ffffff;
@@ -32,7 +31,16 @@
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
   transform: scale(1.1, 1.1);
 }
+.js-page-number:hover {
+  @media screen and (min-width: 1024px) {
+    background: #ff6b08;
+    color: #ffffff;
+    border-radius: 5px;
 
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transform: scale;
+  }
+}
 .pag-left,
 .pag-right {
   background: #f7f7f7;
